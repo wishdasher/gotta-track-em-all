@@ -10,6 +10,7 @@
 body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	margin: 0px;
+	max-width: 1200px;
 }
 /*
  STYLES FOR HEADER AND NAVIGATION ELEMENTS FOUND

@@ -1,0 +1,1 @@
+// js for page component behavior
