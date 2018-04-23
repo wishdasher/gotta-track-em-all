@@ -1,0 +1,60 @@
+:root {
+	--pokemon-red: "#ee1515";
+	--nav-width: 50px;
+	--header-height: 60px;
+
+
+	--size-label: 24px;
+}
+
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: 0px;
+}
+/*
+ STYLES FOR HEADER AND NAVIGATION ELEMENTS FOUND
+ ACROSS ALL PAGES
+*/
+
+header {
+	background-color: purple;
+	height: var(--header-height);
+	width: 100%;
+	position: fixed;
+}
+
+nav {
+	background-color: green;
+	min-width: var(--nav-width);
+	height: 100%;
+	position: fixed;
+	float: left;
+	top: var(--header-height);
+	font-size: var(--size-label);
+}
+
+main {
+	background-color: grey;
+	margin-left: var(--nav-width);
+}
+
+
+.nav {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nav > li {
+	position: relative;
+	display: block;
+	box-sizing: border-box;
+}
+
+.nav > li > a {
+	padding: .8em 1em .8em 1em;
+	display: block;
+	border-width: 0px 1px 1px 1px;
+	border-color: black;
+	border-style: solid;
+}
