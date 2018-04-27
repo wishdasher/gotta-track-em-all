@@ -1,0 +1,64 @@
+#mainbox {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	text-align: center;
+	background-color: #DDF6EF;
+	font-family: "Lato";
+	color: #00B894;
+}
+
+#searchMenu {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	padding-bottom: 30px;
+	font-size: 50px;
+}
+
+#wishlist,#trade {
+	grid-row-start: 2;
+	grid-column-start: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border: 5px solid #00B894;
+	margin:auto;
+}
+
+.submenuHeader {
+	padding-bottom: 10px;
+	padding-top: 10px;
+	font-weight: bold;
+	font-size: 20px;
+}
+.pokemon {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	padding: 15px;
+	border-top: 5px solid #00B894;
+}
+
+.picdiv {
+	text-align: right;
+}
+.pokepic {
+	grid-column-start: 1;
+	grid-column-end: 1;
+	/*height: 75px;*/
+	height:100px;
+	padding-right: 10px;
+}
+
+.pokepic:hover {
+	height: 300px;
+}
+
+.info {
+	grid-column-start:2;
+	text-align: left;
+	padding-left: 10px;
+}
+
+#trade {
+	grid-row-start: 2;
+	grid-column-start: 2;
+}
