@@ -15,24 +15,23 @@ function createSubmenu(name,data) {
 		for (var i=0; i<data.length; i++) {
 			var newPokemon = document.createElement("div");
 			newPokemon.className = "pokemon";
-			var moveString = "Moves: ";
-			for (var j=0; j<data[i].moves.length; j++) {
-				moveString = moveString + data[i].moves[j] + "<br>";
-			}
-			var newDiv = document.createElement("div");
-			newDiv.className = "info";
-			picDiv = document.createElement("div");
-			picDiv.className = "picdiv";
+			// var moveString = "Moves: ";
+			// for (var j=0; j<data[i].moves.length; j++) {
+			// 	moveString = moveString + data[i].moves[j] + "<br>";
+			// }
+			// var newDiv = document.createElement("div");
+			// newDiv.className = "info";
+			// picDiv = document.createElement("div");
+			// picDiv.className = "picdiv";
 			var img = document.createElement("img");
-			picDiv.append(img);
-			img.src = "pictures/" + data[i].name + ".jpg";
+			// picDiv.append(img);
+			// img.src = "pictures/" + data[i].name + ".jpg";
 			img.className = "pokepic";
-			// newPokemon.innerHTML = data[i].name;
-			// createTooltip(newPokemon,data[i].name);
-			newDiv.innerHTML = data[i].name + "<br>" + moveString;
-			newPokemon.append(picDiv);
-			newPokemon.append(newDiv);
-			wishdiv.append(newPokemon);
+			newPokemon.innerHTML = data[i].name;
+			createTooltip(newPokemon,data[i].name);
+			// newDiv.innerHTML = data[i].name + "<br>" + moveString;
+			// newPokemon.append(picDiv);
+			// newPokemon.append(newDiv);
 			wishdiv.append(newPokemon);
 		}
 	}
