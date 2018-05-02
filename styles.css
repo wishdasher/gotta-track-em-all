@@ -22,3 +22,13 @@ body {
 #spacer {
 	height: 40px;
 }
+
+
+
+.login-box {
+	position: relative;
+	top: 50px;
+	left: 100px;
+	width: 50%;
+	padding-left: 100%;
+}
