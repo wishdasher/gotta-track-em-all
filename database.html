@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>Gotta Track Them All</title>
+
+<!-- Use mobile-aware viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Load style sheets -->
+
+
+<!-- <script src="https://unpkg.com/event-target@latest/min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900,900i" rel="stylesheet">
+
+<script src="scripts/util.js"></script>
+<script src="scripts/store.js"></script>
+ -->
+<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+<link rel="stylesheet" href="styles.css">
+
+<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900,900i" rel="stylesheet">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/dist/semantic.min.js"></script>
+<script src="scripts/behavior.js"></script>
+<script src="scripts/Search.js"></script>
+
+</head>
+
+<body>
+
+<div class="ui teal top fixed menu">
+  <div class="item">
+    <a href="index.html">
+      <img src="/images/logo.png">
+    </a>
+  </div>
+
+  <div class="right menu">
+    <a class="item">
+      <i class="messages icon"></i>
+      Messages
+    </a>
+    <a class="item">
+      <i class="profile icon"></i>
+      Profile
+    </a>
+  </div>
+</div>
+
+<div class="ui bottom attached segment pushable">
+  <div class="ui visible left vertical sidebar menu">
+    <a class="active item" href="database.html">
+      <i class="clone outline icon"></i>
+      Card database
+    </a>
+    <a class="item" href="trades.html">
+      <i class="exchange icon"></i>
+      Trades
+    </a>
+    <a class="item" href="friends.html">
+      <i class="user outline icon"></i>
+      Friends
+    </a>
+    <a class="item" href="community.html">
+      <i class="map marker alternate icon"></i>
+      Community
+    </a>
+  </div>
+
+  <div class="pusher">
+    <div class="ui basic segment">
+      <h3 class="ui header">Card database</h3>
+      <div class="ui tabular menu">
+        <a class="active item">
+          Search all cards
+        </a>
+        <a class="item">
+          Search in collection
+        </a>
+      </div>
+
+      <div class="ui search">
+        <div class="ui icon input">
+          <input class="prompt" type="text" placeholder="Search for Pokemon...">
+          <i class="search icon"></i>
+        </div>
+        <div class="results"></div>
+      </div>
+
+      <div style="width:100%">
+        <div class="ui horizontal divider">
+        </div>
+      </div>
+      <div class="ui link cards">
+
+        <div class="card custom-card">
+          <div class="image custom-padding">
+            <img class="right floated mini ui image tiny custom-padding" src="img/latias.png">
+          </div>
+
+          <div class="extra content">
+            <div class="ui two buttons">
+              <div class="ui basic green button">Add to collection</div>
+              <div class="ui horizontal divider"></div>
+              <div class="ui basic blue button">Add to wishlist</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="image custom-padding">
+            <img class="right floated mini ui image tiny custom-padding" src="img/latias.png">
+          </div>
+
+          <div class="extra content">
+            <div class="ui two buttons">
+              <div class="ui basic green button">Add to collection</div>
+              <div class="ui horizontal divider"></div>
+              <div class="ui basic blue button">Add to wishlist</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="image custom-padding">
+            <img class="right floated mini ui image tiny custom-padding" src="img/latias.png">
+          </div>
+
+          <div class="extra content">
+            <div class="ui two buttons">
+              <div class="ui basic green button">Add to collection</div>
+              <div class="ui horizontal divider"></div>
+              <div class="ui basic blue button">Add to wishlist</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+</body>
+
+</html>
