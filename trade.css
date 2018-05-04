@@ -1,20 +1,20 @@
-#mainbox {
+/*#mainbox {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	text-align: center;
 	background-color: #DDF6EF;
 	font-family: "Lato";
 	color: #00B894;
-}
+}*/
 
-#searchMenu {
+/*#searchMenu {
 	grid-column-start: 1;
 	grid-column-end: 3;
 	padding-bottom: 30px;
 	font-size: 50px;
-}
+}*/
 
-#wishlist,#trade {
+/*#wishlist,#trade {
 	grid-row-start: 2;
 	grid-column-start: 1;
 	display: flex;
@@ -23,42 +23,103 @@
 	border: 5px solid #00B894;
 	margin:auto;
 }
-
-.submenuHeader {
+*/
+/*.submenuHeader {
 	padding-bottom: 10px;
 	padding-top: 10px;
 	font-weight: bold;
 	font-size: 20px;
-}
-.pokemon {
+}*/
+/*.pokemon {
 	display: grid;
 	grid-template-columns: 1fr 3fr;
 	padding: 15px;
 	border-top: 5px solid #00B894;
-}
+}*/
 
-.picdiv {
+/*.picdiv {
 	text-align: right;
-}
-.pokepic {
+}*/
+/*.pokepic {
 	grid-column-start: 1;
 	grid-column-end: 1;
-	/*height: 75px;*/
+	height: 75px;
 	height:100px;
 	padding-right: 10px;
+}*/
+.pokepic {
+	height: 250px;
 }
 
-.pokepic:hover {
-	height: 300px;
+.setImg {
+	height: 15px;
 }
 
-.info {
+.outerDiv {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+/*.info {
 	grid-column-start:2;
 	text-align: left;
 	padding-left: 10px;
-}
+}*/
 
-#trade {
+/*#trade {
 	grid-row-start: 2;
 	grid-column-start: 2;
+}*/
+
+.dropdownDiv {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+.tradeDiv {
+	text-align: right;
+}
+
+
+/*TRADE RESULTS START HERE*/
+
+.profilePicPreview {
+	height: 80px;
+	grid-column-start: 2;
+	grid-column-end: 2;
+	grid-row-end:4;
+	grid-row-start:1;
+	margin-top:auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#matches {
+	padding-top: 20px;
+}
+.infoDiv {
+	display: grid;
+	grid-template-columns: 1fr 1fr 5fr 2fr;
+	text-align: left;
+	grid-row-gap: 5px;
+}
+.singleInfoDiv {
+	grid-column-start: 3;
+	margin-top:auto;
+}
+
+.name {
+	font-weight: bold;
+	font-size: 30px;
+	grid-row-start: 1;
+}
+.location {
+	grid-row-start: 2;
+}
+.want {
+	grid-row-start: 3;
+}
+
+.message {
+	grid-column-start: 4;
+	grid-row-start: 1;
 }

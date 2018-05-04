@@ -1,0 +1,62 @@
+.main {
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+#firstRow {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 4fr;
+}
+#addFriend {
+	grid-column-start: 2;
+	grid-column-end: 2;
+}
+#pageName {
+	grid-column-start: 1;
+	grid-column-end: 1;
+	text-align: center;
+	margin: auto;
+	font-weight: bold;
+	font-size: 25px;
+}
+#sendMessage {
+	grid-column-start: 3;
+	grid-column-end: 3;
+}
+
+#addFriend, #username, #sendMessage {
+	grid-row-start: 1;
+	grid-row-end: 1;
+}
+
+#secondRow {
+	padding-top: 30px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+#info {
+	grid-column-start: 2;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end:1;
+	display: flex;
+	flex-direction: column;
+}
+
+#profilePic {
+	text-align: center;
+}
+.profPic {
+	height:150px;
+}
+
+.infoData {
+	margin-top: auto;
+	margin-bottom: auto;
+	font-size: 16px;
+}
+
+.title {
+	font-weight: bold;
+	font-size: 20px;
+}
