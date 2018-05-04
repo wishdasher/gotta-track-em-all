@@ -15,7 +15,7 @@ function createPage() {
 		var tempDiv = document.createElement("div");
 		if (keys[i] == "fav") { 
 			tempDiv.innerHTML = "Favorite Pokemon: " + fakeInfo[keys[i]];
-		}
+		} else if
 		else {
 		tempDiv.innerHTML = keys[i] + ": " + fakeInfo[keys[i]];
 		}

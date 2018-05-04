@@ -1,8 +1,20 @@
 function createPage() {
 	//read json
 	console.log('here');
-	var wishlist = [{"name": "Mewtwo", "moves": ["Psychic", "Barrier"], "set": "Evolutions"},{"name": "Raichu", "moves": ["Electrosmash","Thunder"], "set": "FuriousFists"},{"name": "Bulbasaur", "moves":["Shake Vine","Bullet Seed"], "set": "Team_Magma_vs_Team_Aqua" }];
-	var tradelist = [{"name": "Charizard", "moves": ["Fire Spin"], "set": "Evolutions"},{"name": "Absol", "moves": ["Mach Claw"], "set": "Roaring_Skies"},{"name": "Latias", "moves": ["Psychic Sphere", "Psychic Prism"], "set": "Holon_Phantoms"}];
+	// var wishlist = [{"name": "Mewtwo", "set": "Evolutions"},{"name": "Raichu", "moves": ["Electrosmash","Thunder"], "set": "FuriousFists"},{"name": "Bulbasaur", "moves":["Shake Vine","Bullet Seed"], "set": "Team_Magma_vs_Team_Aqua" }];
+	// var tradelist = [{"name": "Charizard", "set": "Evolutions"},{"name": "Absol", "moves": ["Mach Claw"], "set": "Roaring_Skies"},{"name": "Latias", "moves": ["Psychic Sphere", "Psychic Prism"], "set": "Holon_Phantoms"}];
+	var wishlist = [];
+	var tradelist = [];
+	for (var i=0;i<cards["cards"].length;i++) {
+		var current_card = cards["cards"][i];
+		if (current_card["in_wishlist"]) {
+			wishlist.push(current_card);
+		}
+		if (current_card["up_for_trade"]) {
+			tradelist.push(current_card);
+		}
+	}
+	console.log(wishlist);
 	//for pokemon in wishlist, create div with attributes and make it a link to the results page
 	createSubmenu("wishlist",wishlist);
 	createSubmenu("trade",tradelist);
@@ -22,11 +34,11 @@ function createSubmenu(name,data) {
 			newText.className = "text";
 			newPokemon.append(outerDiv);
 			var img = document.createElement("img");
-			img.src = "img/" + data[i].name + ".png";
+			img.src = data[i].src;
 			img.className = "pokepic";
 			newText.innerHTML = data[i].name;
 			var setImg = document.createElement("img");
-			setImg.src = "icons/" + data[i].set + ".png";
+			setImg.src = "icons/" + data[i].set.replace(" ","") + ".png";
 			setImg.className = "setImg";
 			outerDiv.append(newText);
 			outerDiv.append(setImg);
