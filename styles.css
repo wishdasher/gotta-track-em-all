@@ -32,3 +32,61 @@ body {
 	width: 50%;
 	padding-left: 100%;
 }
+
+.homepage {
+	display: grid;
+	grid-template-columns: 38% 38% 24%;
+	grid-template-rows: 100%;
+	padding:50px;
+	grid-gap: 10%;
+}
+
+.stats {
+	text-align: left;
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: 25% 25% 25% 25%;
+}
+
+
+.box {
+	border: 3px solid teal;
+	border-radius: 15px;
+	padding: 10px;
+
+	text-align: center;
+	height: 70%;
+	background: #B2FFFF;
+
+}
+.clickable {
+	color: black;
+}
+
+.box-title, .box-title-outer {
+	font-size: 20px;
+	font-weight: bold;
+	text-align: : center;
+	margin-top: 5%;
+	text-decoration: underline;
+}
+
+.box-content {
+	margin-left: 5%;
+
+}
+
+.community-content {
+	text-align: left;
+	margin-left: 10px;
+	margin-bottom: 15px;
+	border: 1px solid teal;
+	border-radius: 4px;
+	padding: 4px;
+	background: #BBE3FF;
+}
+
+.notifications {
+	overflow-y: scroll;
+	height: 70%;
+}
