@@ -12,6 +12,8 @@ body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	margin: 0px;
 	margin-top: 45px;
+	height: calc(100vh - 45px);
+
 }
 /*
  STYLES FOR HEADER AND NAVIGATION ELEMENTS FOUND
@@ -37,10 +39,17 @@ body {
 }
 
 .custom-padding img {
-	height: 100px;
 }
 
 .custom-card {
-	flex: .1;
+	flex-grow: .15;
+	flex-shrink: 0;
+	flex-basis: 0%;
 	height: auto;
+}
+
+main {
+	height: calc(100vh - 50px);
+	overflow-y: auto !important;
+	width: calc(100vw - 260px);
 }
