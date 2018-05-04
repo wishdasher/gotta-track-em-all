@@ -1,0 +1,77 @@
+{
+	"cards": [
+	{
+		"id": 1, "name": "Absol", "src": "img/absol.png", "set": "Unleashed"
+	},
+	{
+		"id": 2, "name": "Arcanine", "src": "img/arcanine.png", "set": "Unleashed"
+	},
+	{
+		"id": 3, "name": "Bulbasaur", "src": "img/bulbasaur.png", "set": "Secret Wonders"
+	},
+	{
+		"id": 4, "name": "Celebi", "src": "img/celebi.png", "set": "Secret Wonders"
+	},
+	{
+		"id": 5, "name": "Charizard", "src": "img/harizard.png", "set": "Unleashed"
+	},
+	{
+		"id": 6, "name": "Charmander", "src": "img/charmander.png", "set": "Rising Rivals"
+	},
+	{
+		"id": 7, "name": "Espeon", "src": "img/espeon.png", "set": "Neo Destiny"
+	},
+	{
+		"id": 8, "name": "Haunter", "src": "img/haunter.png", "set": "Rising Rivals"
+	},
+	{
+		"id": 9, "name": "Jirachi", "src": "img/jirachi.png", "set": "Neo Destiny"
+	},
+	{
+		"id": 10, "name": "Latias", "src": "img/latias.png", "set": "Neo Destiny"
+	},
+	{
+		"id": 11, "name": "Mewtwo", "src": "img/mewtwo.png", "set": "Unleashed"
+	},
+	{
+		"id": 12, "name": "Pichu", "src": "img/pichu.png", "set": "Secret Wonders"
+	},
+	{
+		"id": 13, "name": "Pichu", "src": "img/pichu2.png", "set": "Neo Destiny"
+	},
+	{
+		"id": 14, "name": "Pikachu", "src": "img/pikachu.png", "set": "Neo Destiny"
+	},
+	{
+		"id": 15, "name": "Pikachu", "src": "img/pikachu2.png", "set": "Secret Wonders"
+	},
+	{
+		"id": 16, "name": "Pikachu", "src": "img/pikachu3.png", "set": "Unleashed"
+	},
+	{
+		"id": 17, "name": "Pikachu", "src": "img/pikachu4.png", "set": "Rising Rivals"
+	},
+	{
+		"id": 18, "name": "Raichu", "src": "img/raichu.png", "set": "Rising Rivals"
+	},
+	{
+		"id": 19, "name": "Sceptile", "src": "img/sceptile.png", "set": "Unleashed"
+	},
+	{
+		"id": 20, "name": "Swallow", "src": "img/swallow.png", "set": "Secret Wonders"
+	},
+	{
+		"id": 21, "name": "Umbreon", "src": "img/umbreon.png", "set": "Rising Rivals"
+	},
+	{
+		"id": 22, "name": "Wobbuffet", "src": "img/wobbuffet.png", "set": "Unleashed"
+	},
+	{
+		"id": 23, "name": "Wooper", "src": "img/wooper.png", "set": "Neo Destiny"
+	},
+	]
+
+}
+
+
+//rising rivals, neo destiny, unleashed, secret wonders
