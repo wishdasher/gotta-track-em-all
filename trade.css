@@ -48,20 +48,13 @@
 	padding-right: 10px;
 }*/
 
-.centeredGrid {
-	text-align: center;
-	display: flex;
-}
 
-.lists {
-	display:grid;
-	grid-template-columns: 1fr 1fr;
-}
-
-.wishlistDiv {
+#searchBar {
+	padding-top: 50px;
 }
 .pokepic {
 	height: 250px;
+	z-index: 4000;
 }
 
 .setImg {

@@ -112,3 +112,8 @@ main {
 	overflow-y: auto !important;
 	width: calc(100vw - 260px);
 }
+
+.noscroll {
+	overflow-x: hidden;
+	height: inherit;
+}

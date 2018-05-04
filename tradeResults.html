@@ -19,19 +19,45 @@
          <script src="scripts/behavior.js"></script> -->
       <script src="tradeResults.js"></script>
    </head>
+     <div class="ui teal top fixed menu">
+  <a class="item" href="index.html">
+      <img style="height:30px; width: auto" src="img/logo.png">
+      Gotta Track 'Em All
+  </a>
+
+  <div class="right menu">
+    <a class="item">
+      <i class="user outline icon"></i>
+      Profile
+    </a>
+  </div>
+</div>
+
+<div class="ui bottom attached segment pushable">
+  <div class="ui visible left vertical sidebar menu">
+    <a class="active item" href="database.html">
+      <i class="clone outline icon"></i>
+      Card database
+    </a>
+    <a class="item" href="trade.html">
+      <i class="exchange icon"></i>
+      Trades
+    </a>
+    <a class="item" href="friends.html">
+      <i class="outline envelope icon"></i>
+      Messages
+    </a>
+    <a class="item" href="community.html">
+      <i class="map marker alternate icon"></i>
+      Community
+    </a>
+  </div>
+
+  <div class="pusher main-content">
+
    <main>
-      <!-- <div id="mainbox"> 
-         <div id="searchMenu"><input id="searchInput" type="text">
-         <button id="searchButton">Search</button>
-         <select>
-           <option value="trade">User who wants</option>
-           <option value="wishlist">User who has</option>
-         </select>
-         </div>
-         <div id="wishlist"><div class="submenuHeader">Wishlist</div></div>
-         <div id="trade"><div class="submenuHeader">Up For Trade</div></div>
-         </div> -->
-      <div class="ui centered grid">
+      <div class="noscroll">
+      <div class="ui centered grid" id="searchBar">
                   <div class="dropdownDiv">
             <div class="ui dropdown">
                <div class="text"></div>
@@ -47,5 +73,7 @@
          <div id="matches">
          </div>
       </div>
+   </div>
    </main>
+</div>
 </html>
