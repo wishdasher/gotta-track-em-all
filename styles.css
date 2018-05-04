@@ -11,8 +11,9 @@
 body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	margin: 0px;
-	max-width: 1200px;
 	margin-top: 45px;
+	height: calc(100vh - 45px);
+
 }
 /*
  STYLES FOR HEADER AND NAVIGATION ELEMENTS FOUND
@@ -39,6 +40,8 @@ body {
 	grid-template-rows: 100%;
 	padding:50px;
 	grid-gap: 10%;
+	margin-right: 15%;
+	margin-left: 5%;
 }
 
 .stats {
@@ -89,4 +92,23 @@ body {
 .notifications {
 	overflow-y: scroll;
 	height: 70%;
+}
+.custom-padding {
+	padding: 10px;
+}
+
+.custom-padding img {
+}
+
+.custom-card {
+	flex-grow: .15;
+	flex-shrink: 0;
+	flex-basis: 0%;
+	height: auto;
+}
+
+main {
+	height: calc(100vh - 50px);
+	overflow-y: auto !important;
+	width: calc(100vw - 260px);
 }
