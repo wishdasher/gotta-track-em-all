@@ -9,6 +9,8 @@ var createPage = () => {
 	//     context: '.spacer'
 	//   })
 	// ;
+$('body')
+    .css('padding-top', $('#top-menu').height());
 
 }
 document.addEventListener("DOMContentLoaded", createPage);
