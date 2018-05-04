@@ -47,6 +47,19 @@
 	height:100px;
 	padding-right: 10px;
 }*/
+
+.centeredGrid {
+	text-align: center;
+	display: flex;
+}
+
+.lists {
+	display:grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.wishlistDiv {
+}
 .pokepic {
 	height: 250px;
 }
