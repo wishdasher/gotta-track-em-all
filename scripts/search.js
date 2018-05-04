@@ -1,8 +1,3 @@
-$('.ui.search')
-  .search({
-    source: content
-  })
-;
 var content = [
   { title: 'Andorra' },
   { title: 'United Arab Emirates' },
@@ -30,3 +25,10 @@ var content = [
   { title: 'Burundi' }
   // etc
 ];
+
+var searchAll = true;
+
+var setup = () => {
+
+}
+document.addEventListener("DOMContentLoaded", setup);

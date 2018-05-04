@@ -30,6 +30,17 @@ body {
 	left: 100px;
 	width: 50%;
 	padding-left: 100%;
+}
+
 .custom-padding {
 	padding: 10px;
+}
+
+.custom-padding img {
+	height: 100px;
+}
+
+.custom-card {
+	flex: .1;
+	height: auto;
 }

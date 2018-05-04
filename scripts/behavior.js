@@ -1,7 +1,12 @@
 // js for page component behavior
 
-$('.ui.sidebar')
-  .sidebar({
-    context: '.spacer'
-  })
-;
+
+var createPage = () => {
+	// $('.ui.sidebar')
+	//   .sidebar({
+	//     context: '.spacer'
+	//   })
+	// ;
+
+}
+document.addEventListener("DOMContentLoaded", createPage);
