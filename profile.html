@@ -1,24 +1,80 @@
+<!DOCTYPE html>
+
 <html>
-   <head>
-      <meta charset="utf-8">
-      <title>Profile Page</title>
-      <!-- <link rel="stylesheet" href="styles.css"> -->
-      <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-      <link rel="stylesheet" href="styles.css">
-      <link rel="stylesheet" href="profile.css">
-      <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900,900i" rel="stylesheet">
-      <script
-         src="https://code.jquery.com/jquery-3.1.1.min.js"
-         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-         crossorigin="anonymous"></script>
-      <script src="semantic/dist/semantic.min.js"></script>
-      <script src="scripts/behavior.js"></script>
-      <script src="profile.js"></script>
-      <!-- <script src="scripts/behavior.js"></script>
-         <script src="scripts/util.js"></script>
-         <script src="scripts/store.js"></script>
-         <script src="scripts/behavior.js"></script> -->
-   </head>
+
+<head>
+<meta charset="utf-8">
+<title>Gotta Track Them All</title>
+
+<!-- Use mobile-aware viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Load style sheets -->
+
+
+<!-- <script src="https://unpkg.com/event-target@latest/min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900,900i" rel="stylesheet">
+
+<script src="scripts/util.js"></script>
+<script src="scripts/store.js"></script>
+ -->
+<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+<link rel="stylesheet" href="styles/styles.css">
+<link rel="stylesheet" href="styles/profile.css">
+
+<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900,900i" rel="stylesheet">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/dist/semantic.min.js"></script>
+<script src="scripts/behavior.js"></script>
+<script src="scripts/profile.js"></script>
+
+</head>
+<body>
+
+<div class="ui teal top fixed menu">
+  <a class="item" href="index.html">
+      <img style="height:30px; width: auto" src="img/logo.png">
+      Gotta Track 'Em All
+  </a>
+
+  <div class="right menu">
+    <a class="active item" href="profile.html">
+      <i class="user outline icon"></i>
+      Profile
+    </a>
+  </div>
+</div>
+
+<div class="ui bottom attached segment pushable">
+  <div class="ui visible left vertical sidebar menu">
+    <a class="item" href="database.html">
+      <i class="clone outline icon"></i>
+      Card database
+    </a>
+    <a class="item" href="trade.html">
+      <i class="exchange icon"></i>
+      Trades
+    </a>
+    <a class="item" href="messages.html">
+      <i class="outline envelope icon"></i>
+      Messages
+    </a>
+    <a class="item" href="community.html">
+      <i class="map marker alternate icon"></i>
+      Community
+    </a>
+  </div>
+
+
+
+
+  <div class="pusher main-content">
+
    <main>
       <div id="firstRow">
       <div id="pageName">Profile</div>
@@ -30,4 +86,7 @@
       <div id="info"></div>
     </div>
    </main>
+   </div>
+</div>
+</body>
 </html>
