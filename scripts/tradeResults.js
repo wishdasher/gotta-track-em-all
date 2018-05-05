@@ -3,6 +3,9 @@ function createPage() {
 	var matchData = [{"name": "Ash", "location": "Boston", "want": "Pikachu"}]
 	var numMatches = 1;
 	var numMatchesDiv = document.createElement("div");
+	var searchValue = getURLParam("search");
+	var searchBar = document.getElementById("search");
+	searchBar.value = searchValue;
 	if (numMatches==1) {
 		numMatchesDiv.innerHTML = "You have " + numMatches + " match!";
 	} else {
@@ -72,5 +75,10 @@ $('.ui.dropdown')
 ;
 }
 
+function searchFunc() {
+	var searchTerm = document.getElementById("search").value;
+	var url = "tradeResults.html?search="+searchTerm;
+	window.location.href = url;
+}
 
 document.addEventListener("DOMContentLoaded",createPage);

@@ -18,7 +18,7 @@ function createPage() {
 	//for pokemon in wishlist, create div with attributes and make it a link to the results page
 	createSubmenu("wishlist",wishlist);
 	createSubmenu("trade",tradelist);
-	runSemanticJquery();
+	setTimeout(runSemanticJquery,100);
 	//for pokemon in UFT, create div with attributes and make it a link to the results page
 }
 
@@ -27,28 +27,60 @@ function createSubmenu(name,data) {
 	if (data.length >0) {
 		for (var i=0; i<data.length; i++) {
 			var newPokemon = document.createElement("div");
-			newPokemon.className = "ui item";
+			newPokemon.className = "ui item pokemonDiv";
 			var outerDiv = document.createElement("div");
 			outerDiv.className = "outerDiv";
-			var newText = document.createElement("div");
-			newText.className = "text";
-			newPokemon.append(outerDiv);
-			var img = document.createElement("img");
-			img.src = data[i].src;
-			img.className = "pokepic";
-			newText.innerHTML = data[i].name;
-			var setImg = document.createElement("img");
-			setImg.src = "icons/" + data[i].set.replace(" ","") + ".png";
-			setImg.className = "setImg";
-			outerDiv.append(newText);
-			outerDiv.append(setImg);
+			var previewImg = document.createElement("img");
+			var actualImg = document.createElement("img");
+			actualImg.src = data[i].src;
+			previewImg.src = data[i].src;
+			previewImg.className = "previewImg" + " " + name+"Preview";
+			actualImg.className = "pokepic";
+			addInfo(data[i],outerDiv);
 			var newTooltip = document.createElement("div");
 			newTooltip.className = "ui special popup";
-			newTooltip.append(img);
-			wishdiv.append(newPokemon);
-			outerDiv.append(newTooltip);
+
+
+			newPokemon.append(previewImg);
+			newPokemon.append(outerDiv);
+			newTooltip.append(actualImg);
+			
+			newPokemon.append(newTooltip);
+			var link = document.createElement("a");
+			var url = "tradeResults.html?search="+data[i].name;
+			link.href = url;
+			link.append(newPokemon);
+			wishdiv.append(link);
+
 		}
 	}
+}
+
+function addInfo(data, outerDiv) {
+	var nameText = document.createElement("div");
+	nameText.className = "text";
+	nameText.innerHTML = data.name + " ";
+
+	var setImg = document.createElement("img");
+	setImg.src = "icons/" + data.set.replace(" ","") + ".png";
+	setImg.className = "setImg";
+
+	var typeText = document.createElement("div");
+	typeText.className = "text";
+	var type = data.type;
+	var type = type.charAt(0).toUpperCase() + type.slice(1);
+	typeText.innerHTML = "Type: " + type;
+
+	var healthText = document.createElement("div");
+	healthText.className = "text";
+	var hp = data.hp;
+	healthText.innerHTML = "HP: " + hp;
+
+	nameText.append(setImg);
+	outerDiv.append(nameText);
+	outerDiv.append(typeText);
+	outerDiv.append(healthText);
+	// outerDiv.append(setImg);
 }
 
 function runSemanticJquery() {
@@ -57,11 +89,17 @@ function runSemanticJquery() {
         inline: true,
         position: "bottom center",
       });
-     $('.text')
+     $('.wishlistPreview')
+      .popup({
+        inline: true,
+        position: "right center"
+      });
+       $('.tradePreview')
       .popup({
         inline: true,
         position: "left center"
       });
+      console.log(document.getElementsByClassName("previewImg"));
 $('.ui.dropdown')
   .dropdown({
     values: [
@@ -77,6 +115,12 @@ $('.ui.dropdown')
     ]
   })
 ;
+}
+
+function searchFunc() {
+	var searchTerm = document.getElementById("search").value;
+	var url = "tradeResults.html?search="+searchTerm;
+	window.location.href = url;
 }
 
 // function createTooltip(div,name) {
