@@ -92,16 +92,24 @@
           <div class="ui search">
             <div class="ui icon input">
               <input class="prompt" type="text" id="search" placeholder="Search for Pokemon...">
-              <i class="search icon" id="search-icon-input"></i>
             </div>
             <div class="results"></div>
           </div>
 
           <div class="small-spacer"></div>
 
-          <select class="ui dropdown">
+          <select class="ui dropdown" id="set-select">
+              <option value="ALL">All sets</option>
+              <option value="Neo Destiny">Neo Destiny</option>
+              <option value="Rising Rivals">Rising Rivals</option>
+              <option value="Secret Wonders">Secret Wonders</option>
+              <option value="Unleashed">Unleashed</option>
           </select>
 
+
+          <div class="small-spacer"></div>
+
+          <div class="ui teal button" id="search-button">Search</div>
 <!--           <div class="ui dropdown labeled icon button">
             <i class="filter icon"></i>
             <span class="text">Search specific set</span>

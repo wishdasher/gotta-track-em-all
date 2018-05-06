@@ -13,9 +13,6 @@ var setup = () => {
 	collection = localStorage.getItem("collection") ?
 		JSON.parse(localStorage.getItem("collection")) : cards.cards;
 
-	setUpDropDown();
-
-
 	Util.one("#search-all").addEventListener("click", (evt) => {
 		let tab = evt.target;
 		if (!tab.classList.contains("active")) {
@@ -44,7 +41,7 @@ var setup = () => {
 		}
 	});
 
-	Util.one("#search-icon-input").addEventListener("click", (evt) => {
+	Util.one("#search-button").addEventListener("click", (evt) => {
 		reloadResults(evt);
 	});
 
@@ -58,37 +55,15 @@ var setup = () => {
 
 }
 
-var setUpDropDown = () => {
-	$('.ui.dropdown')
-		.dropdown({
-		values: [
-			{
-				name: 'Neo Destiny',
-				value: 'Neo Destiny'
-			},
-			{
-				name: 'Rising Rivals',
-				value: 'Rising Rivals'
-			},
-			{
-				name: 'Secret Wonders',
-				value: 'Secret Wonders'
-			},
-			{
-				name: 'Unleashed',
-				value: 'Unleashed'
-			},
-			{
-				name: 'All sets',
-				value: 'ALL',
-				selected: true
-			},
-		]});
-}
-
 var reloadResults = (evt) => {
 	let query = Util.one("#search").value;
-	let showCards = collection.filter(c => matchQuery(query, c.name) && (searchAll || c.count));
+	let set = $('#set-select').dropdown('get value');
+
+	let showCards = collection.filter(
+		c => matchQuery(query, c.name) &&
+		(searchAll || c.count) &&
+		(set === "ALL" || set === c.set));
+
 	let cardResults = Util.one("#card-results");
 	removeAllChildren(cardResults);
 
@@ -184,9 +159,9 @@ var createCard = (card) => {
 	// let tradeButton = document.createElement("button");
 	if (trade) {
 		if (count) {
-			tradeButton.setAttribute("class", "ui basic red button");
+			tradeButton.setAttribute("class", "ui basic orange button");
 		} else {
-			tradeButton.setAttribute("class", "ui basic disabled red button");
+			tradeButton.setAttribute("class", "ui basic disabled orange button");
 		}
 		tradeButton.innerHTML = removeTradeString;
 	} else {
@@ -205,7 +180,7 @@ var createCard = (card) => {
 
 	let wishlistButton = document.createElement("button");
 	if (wishlist) {
-		wishlistButton.setAttribute("class", "ui basic red button");
+		wishlistButton.setAttribute("class", "ui basic blue button");
 		wishlistButton.innerHTML = removeWishlistString;
 	} else {
 		wishlistButton.setAttribute("class", "ui blue button");
