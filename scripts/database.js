@@ -10,6 +10,7 @@ var setup = () => {
 		}
 		searchAll = true;
 		Util.one("#search-collection").classList.remove("active");
+		reloadResults(evt);
 	});
 
 	Util.one("#search-collection").addEventListener("click", (evt) => {
@@ -19,6 +20,7 @@ var setup = () => {
 		}
 		searchAll = false;
 		Util.one("#search-all").classList.remove("active");
+		reloadResults(evt);
 	});
 
 	Util.one("#search").addEventListener("keypress", (evt) => {
@@ -38,7 +40,7 @@ var setup = () => {
 var reloadResults = (evt) => {
 	console.log("reloading");
 	let query = Util.one("#search").value;
-	let showCards = cards.cards.filter(c => matchQuery(query, c.name) && c.in_collection);
+	let showCards = cards.cards.filter(c => matchQuery(query, c.name) && (searchAll || c.in_collection));
 	console.log(showCards);
 	let cardResults = Util.one("#card-results");
 	removeAllChildren(cardResults);
