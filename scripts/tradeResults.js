@@ -65,7 +65,7 @@ $('.ui.dropdown')
       {
         name     : 'Users Who Have',
         value    : 'wishlist',
-        selected : (searchType=="wishlist")
+        selected : (searchType!="trade")
       }
     ]
   });

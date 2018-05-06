@@ -103,7 +103,7 @@ body {
 */}
 
 .custom-card {
-	max-width: 220px !important;
+	max-width: 230px !important;
 	/*flex: .3;*/
 	height: auto;
 }
@@ -129,4 +129,18 @@ main {
 	main {
 		width: calc(100vw - 150px);
 	}
+
+.extra-wrapper {
+	padding: 7px 7px !important;
+}
+
+.small-spacer {
+	height: 7px;
+	width: 7px;
+}
+
+.search-components {
+	display: flex;
+	flex-direction: horizontal;
+	space-between: 5px;
 }
