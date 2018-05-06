@@ -1,7 +1,12 @@
-
 var searchAll = false;
 
+var collection;
+
 var setup = () => {
+
+	collection = localStorage.getItem("collection") ?
+		JSON.parse(localStorage.getItem("collection")) : cards.cards;
+
 
 	Util.one("#search-all").addEventListener("click", (evt) => {
 		let tab = evt.target;
@@ -38,10 +43,10 @@ var setup = () => {
 }
 
 var reloadResults = (evt) => {
-	console.log("reloading");
 	let query = Util.one("#search").value;
-	let showCards = cards.cards.filter(c => matchQuery(query, c.name) && (searchAll || c.in_collection));
-	console.log(showCards);
+	console.log(collection);
+	let showCards = collection.filter(c => matchQuery(query, c.name) && (searchAll || c.inCollection));
+	// console.log(showCards);
 	let cardResults = Util.one("#card-results");
 	removeAllChildren(cardResults);
 
@@ -52,6 +57,9 @@ var reloadResults = (evt) => {
 }
 
 var createCard = (card) => {
+	let wishlist = card.inWishlist;
+	let trade = card.upForTrade;
+
 	let cardDiv = document.createElement("div");
 	cardDiv.setAttribute("class", "card custom-card");
 	cardDiv.setAttribute("id", card.id + "-" + card.name);
@@ -68,12 +76,35 @@ var createCard = (card) => {
 	extraDiv.setAttribute("class", "extra content");
 	let buttonDiv = document.createElement("div");
 	buttonDiv.setAttribute("class", "ui two buttons");
+
 	let tradeButton = document.createElement("div");
-	tradeButton.setAttribute("class", "ui basic green button");
-	// set tradeButton text
+	if (trade) {
+		tradeButton.setAttribute("class", "ui basic red button");
+		tradeButton.innerHTML = "Take down from trade";
+	} else {
+		tradeButton.setAttribute("class", "ui basic green button");
+		tradeButton.innerHTML = "Put up for trade";
+	}
+	tradeButton.addEventListener("click", (evt) => {
+		card.upForTrade = !trade
+		localStorage.setItem("collection", JSON.stringify(collection));
+		reloadResults();
+	});
+
 	let wishlistButton = document.createElement("div");
-	wishlistButton.setAttribute("class", "ui basic blue button");
-	// set wishlistButton text
+	if (wishlist) {
+		wishlistButton.setAttribute("class", "ui basic red button");
+		wishlistButton.innerHTML = "Remove from wishlist";
+	} else {
+		wishlistButton.setAttribute("class", "ui basic blue button");
+		wishlistButton.innerHTML = "Add to wishlist";
+	}
+	wishlistButton.addEventListener("click", (evt) => {
+		card.inWishlist = !wishlist;
+		localStorage.setItem("collection", JSON.stringify(collection));
+		reloadResults();
+	});
+
 	buttonDiv.appendChild(tradeButton);
 	buttonDiv.appendChild(wishlistButton);
 	extraDiv.appendChild(buttonDiv);
@@ -81,6 +112,7 @@ var createCard = (card) => {
 	// TODO add listeners to make buttons affect data
 
 	return cardDiv;
+
 }
 
 

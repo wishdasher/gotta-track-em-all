@@ -97,11 +97,14 @@ body {
 	padding: 10px;
 }
 
-.custom-padding img {
-}
+.custom-card img {
+/*	max-width: 200px !important;
+	height: auto !important;
+*/}
 
 .custom-card {
-	flex: .3;
+	max-width: 220px !important;
+	/*flex: .3;*/
 	height: auto;
 }
 
