@@ -55,8 +55,7 @@ var setup = () => {
 	} else {
 		Util.one("#search-collection").click();
 	}
-	reloadResults();
-	console.log(cards);
+
 }
 
 var setUpDropDown = () => {
@@ -89,9 +88,7 @@ var setUpDropDown = () => {
 
 var reloadResults = (evt) => {
 	let query = Util.one("#search").value;
-	console.log(collection);
 	let showCards = collection.filter(c => matchQuery(query, c.name) && (searchAll || c.count));
-	// console.log(showCards);
 	let cardResults = Util.one("#card-results");
 	removeAllChildren(cardResults);
 
@@ -147,9 +144,15 @@ var createCard = (card) => {
 	plusButton.appendChild(plusIcon);
 
 	minusButton.addEventListener("click", (evt) => {
-		card.count = count - 1;
+		count--;
+		card.count = count;
 		localStorage.setItem("collection", JSON.stringify(collection));
-		reloadResults();
+		countField.innerHTML = count;
+		if (count) {
+			minusButton.setAttribute("class", "ui compact icon red button");
+		} else {
+			minusButton.setAttribute("class", "ui compact icon disabled red button");
+		}
 	});
 
 	plusButton.addEventListener("click", (evt) => {
