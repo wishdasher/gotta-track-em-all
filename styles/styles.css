@@ -125,4 +125,11 @@ main {
 
 .small-spacer {
 	height: 7px;
+	width: 7px;
+}
+
+.search-components {
+	display: flex;
+	flex-direction: horizontal;
+	space-between: 5px;
 }

@@ -1,4 +1,4 @@
-var searchAll = false;
+var searchAll;
 
 var collection;
 
@@ -22,6 +22,7 @@ var setup = () => {
 			tab.classList.add("active");
 		}
 		searchAll = true;
+		localStorage.setItem("searchAll", "true");
 		Util.one("#search-collection").classList.remove("active");
 		reloadResults(evt);
 	});
@@ -32,12 +33,13 @@ var setup = () => {
 			tab.classList.add("active");
 		}
 		searchAll = false;
+		localStorage.setItem("searchAll", "false");
 		Util.one("#search-all").classList.remove("active");
 		reloadResults(evt);
 	});
 
 	Util.one("#search").addEventListener("keypress", (evt) => {
-		if (evt.keyCode === 13) {
+		if (evt.keyCode === 13) { // enter key
 			reloadResults(evt);
 		}
 	});
@@ -46,6 +48,13 @@ var setup = () => {
 		reloadResults(evt);
 	});
 
+	searchAll = localStorage.getItem("searchAll") === "true" ? true : false;
+
+	if (searchAll) {
+		Util.one("#search-all").click();
+	} else {
+		Util.one("#search-collection").click();
+	}
 	reloadResults();
 	console.log(cards);
 }
