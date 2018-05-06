@@ -1,4 +1,10 @@
 function createPage() {
+	console.log("here")
+	var pageOwner = getURLParam("user");
+	if (pageOwner == null) {
+		pageOwner = "Ben";
+	}
+	console.log(pageOwner);
 	var fakeInfo = {"Name": "Ben", "Age": "20", "Location": "Cambridge, MA", "fav": "Pikachu"}
 	var profPic = document.createElement("img");
 	profPic.src = "img/ash.png";
@@ -15,7 +21,7 @@ function createPage() {
 		var tempDiv = document.createElement("div");
 		if (keys[i] == "fav") { 
 			tempDiv.innerHTML = "Favorite Pokemon: " + fakeInfo[keys[i]];
-		} else if
+		}
 		else {
 		tempDiv.innerHTML = keys[i] + ": " + fakeInfo[keys[i]];
 		}

@@ -35,11 +35,14 @@ function createPage() {
 			infoDiv.append(singleInfoDiv);
 		}
 		var outerMessage = document.createElement("div");
-		outerMessage.className = "message";
+		outerMessage.className = "message1";
+		var link = document.createElement("a");
+		link.href = "messages.html";
 		var innerMessage = document.createElement("div");
 		innerMessage.className = "ui button";
 		innerMessage.innerHTML = "Message";
-		outerMessage.append(innerMessage);
+		link.append(innerMessage);
+		outerMessage.append(link);
 		infoDiv.append(outerMessage);
 		match.append(infoDiv);
 		matches.append(match);
