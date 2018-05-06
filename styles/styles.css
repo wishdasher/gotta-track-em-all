@@ -103,7 +103,7 @@ body {
 */}
 
 .custom-card {
-	max-width: 220px !important;
+	max-width: 230px !important;
 	/*flex: .3;*/
 	height: auto;
 }
@@ -117,4 +117,12 @@ main {
 .noscroll {
 	overflow-x: hidden;
 	height: inherit;
+}
+
+.extra-wrapper {
+	padding: 7px 7px !important;
+}
+
+.small-spacer {
+	height: 7px;
 }
