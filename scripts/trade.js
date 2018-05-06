@@ -1,12 +1,16 @@
 function createPage() {
 	//read json
 	console.log('here');
+	var collection = localStorage.getItem("collection") ?
+		JSON.parse(localStorage.getItem("collection")) : cards.cards;
+
+	console.log(collection);
 	// var wishlist = [{"name": "Mewtwo", "set": "Evolutions"},{"name": "Raichu", "moves": ["Electrosmash","Thunder"], "set": "FuriousFists"},{"name": "Bulbasaur", "moves":["Shake Vine","Bullet Seed"], "set": "Team_Magma_vs_Team_Aqua" }];
 	// var tradelist = [{"name": "Charizard", "set": "Evolutions"},{"name": "Absol", "moves": ["Mach Claw"], "set": "Roaring_Skies"},{"name": "Latias", "moves": ["Psychic Sphere", "Psychic Prism"], "set": "Holon_Phantoms"}];
 	var wishlist = [];
 	var tradelist = [];
-	for (var i=0;i<cards["cards"].length;i++) {
-		var current_card = cards["cards"][i];
+	for (var i=0;i<collection.length;i++) {
+		var current_card =  collection[i];
 		if (current_card["inWishlist"]) {
 			wishlist.push(current_card);
 		}
@@ -110,7 +114,7 @@ $('.ui.dropdown')
       {
         name     : 'Users Who Have',
         value    : 'wishlist',
-        selected : true
+        selected : true,
       }
     ]
   })
@@ -119,7 +123,8 @@ $('.ui.dropdown')
 
 function searchFunc() {
 	var searchTerm = document.getElementById("search").value;
-	var url = "tradeResults.html?search="+searchTerm;
+	var searchType = $('.dropdown').dropdown('get value')[0];
+	var url = "tradeResults.html?search="+searchTerm+"&type="+searchType;
 	window.location.href = url;
 }
 

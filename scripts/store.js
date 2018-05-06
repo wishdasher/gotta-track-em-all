@@ -10,7 +10,7 @@ var cards = {
 		"id": 3, "name": "Bulbasaur", "src": "img/bulbasaur.png", "set": "Secret Wonders", "inCollection": true, "inWishlist": false,"upForTrade": false, "type": "grass", "hp": "50",
 	},
 	{
-		"id": 4, "name": "Celebi", "src": "img/celebi.png", "set": "Secret Wonders", "inCollection": false, "inWishlist": false,"upForTrade": false,
+		"id": 4, "name": "Celebi", "src": "img/celebi.png", "set": "Secret Wonders", "inCollection": false, "inWishlist": false,"upForTrade": false, "type": "grass", "hp": "110",
 	},
 	{
 		"id": 5, "name": "Charizard", "src": "img/charizard.png", "set": "Unleashed", "inCollection": true, "inWishlist": false,"upForTrade": true, "type": "fire", "hp": "150",

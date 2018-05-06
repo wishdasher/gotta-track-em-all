@@ -3,9 +3,14 @@ function createPage() {
 	var matchData = [{"name": "Ash", "location": "Boston", "want": "Pikachu"}]
 	var numMatches = 1;
 	var numMatchesDiv = document.createElement("div");
+
 	var searchValue = getURLParam("search");
 	var searchBar = document.getElementById("search");
 	searchBar.value = searchValue;
+	var searchType = getURLParam("type");
+	console.log(searchType);
+	$('.dropdown').dropdown('set selected', searchType);
+
 	if (numMatches==1) {
 		numMatchesDiv.innerHTML = "You have " + numMatches + " match!";
 	} else {
@@ -51,16 +56,6 @@ function createPage() {
 }
 
 function runSemanticJquery() {
-       $('.card')
-      .popup({
-        inline: true,
-        position: "bottom center",
-      });
-     $('.text')
-      .popup({
-        inline: true,
-        position: "left center"
-      });
 $('.ui.dropdown')
   .dropdown({
     values: [
