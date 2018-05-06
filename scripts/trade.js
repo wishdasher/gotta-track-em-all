@@ -7,10 +7,10 @@ function createPage() {
 	var tradelist = [];
 	for (var i=0;i<cards["cards"].length;i++) {
 		var current_card = cards["cards"][i];
-		if (current_card["in_wishlist"]) {
+		if (current_card["inWishlist"]) {
 			wishlist.push(current_card);
 		}
-		if (current_card["up_for_trade"]) {
+		if (current_card["upForTrade"]) {
 			tradelist.push(current_card);
 		}
 	}
@@ -44,7 +44,7 @@ function createSubmenu(name,data) {
 			newPokemon.append(previewImg);
 			newPokemon.append(outerDiv);
 			newTooltip.append(actualImg);
-			
+
 			newPokemon.append(newTooltip);
 			var link = document.createElement("a");
 			var url = "tradeResults.html?search="+data[i].name;
@@ -134,7 +134,7 @@ function searchFunc() {
 // 	toolTipDiv.style.position = "absolute";
 
 // 	//insert actual tooltip function here
-// 	div.addEventListener("mouseenter", function() { 
+// 	div.addEventListener("mouseenter", function() {
 // 		// var offset = div.offset();
 // 		toolTipDiv.style.top = div.offsetTop;
 // 		toolTipDiv.style.left = div.offsetLeft;
