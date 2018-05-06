@@ -80,7 +80,7 @@ var createCard = (card) => {
 	let tradeButton = document.createElement("div");
 	if (trade) {
 		tradeButton.setAttribute("class", "ui basic red button");
-		tradeButton.innerHTML = "Remove from trade";
+		tradeButton.innerHTML = "Take down from trade";
 	} else {
 		tradeButton.setAttribute("class", "ui basic green button");
 		tradeButton.innerHTML = "Put up for trade";
