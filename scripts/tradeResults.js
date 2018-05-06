@@ -8,8 +8,6 @@ function createPage() {
 	var searchBar = document.getElementById("search");
 	searchBar.value = searchValue;
 	var searchType = getURLParam("type");
-	console.log(searchType);
-	$('.dropdown').dropdown('set selected', searchType);
 
 	if (numMatches==1) {
 		numMatchesDiv.innerHTML = "You have " + numMatches + " match!";
@@ -52,30 +50,31 @@ function createPage() {
 		match.append(infoDiv);
 		matches.append(match);
 	}
-	runSemanticJquery();
+	runSemanticJquery(searchType);
 }
 
-function runSemanticJquery() {
+function runSemanticJquery(searchType) {
 $('.ui.dropdown')
   .dropdown({
     values: [
       {
         name: 'Users Who Want',
-        value: 'trade'
+        value: 'trade',
+        selected: (searchType=="trade")
       },
       {
         name     : 'Users Who Have',
         value    : 'wishlist',
-        selected : true
+        selected : (searchType=="wishlist")
       }
     ]
-  })
-;
+  });
 }
 
 function searchFunc() {
 	var searchTerm = document.getElementById("search").value;
-	var url = "tradeResults.html?search="+searchTerm;
+	var searchType = $('.dropdown').dropdown('get value')[0];
+	var url = "tradeResults.html?search="+searchTerm+"&type="+searchType;
 	window.location.href = url;
 }
 

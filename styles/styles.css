@@ -118,3 +118,15 @@ main {
 	overflow-x: hidden;
 	height: inherit;
 }
+
+@media (min-width: 840px) {
+	main {
+		width: calc(100vw - 260px);
+	}
+}
+
+@media (min-width: 730px) {
+	main {
+		width: calc(100vw - 150px);
+	}
+}

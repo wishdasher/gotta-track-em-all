@@ -3,26 +3,16 @@ function createPage() {
 	console.log('here');
 	var collection = localStorage.getItem("collection") ?
 		JSON.parse(localStorage.getItem("collection")) : cards.cards;
-
 	console.log(collection);
 	// var wishlist = [{"name": "Mewtwo", "set": "Evolutions"},{"name": "Raichu", "moves": ["Electrosmash","Thunder"], "set": "FuriousFists"},{"name": "Bulbasaur", "moves":["Shake Vine","Bullet Seed"], "set": "Team_Magma_vs_Team_Aqua" }];
 	// var tradelist = [{"name": "Charizard", "set": "Evolutions"},{"name": "Absol", "moves": ["Mach Claw"], "set": "Roaring_Skies"},{"name": "Latias", "moves": ["Psychic Sphere", "Psychic Prism"], "set": "Holon_Phantoms"}];
-	var wishlist = [];
-	var tradelist = [];
-	for (var i=0;i<collection.length;i++) {
-		var current_card =  collection[i];
-		if (current_card["inWishlist"]) {
-			wishlist.push(current_card);
-		}
-		if (current_card["upForTrade"]) {
-			tradelist.push(current_card);
-		}
-	}
-	console.log(wishlist);
+	var wishlist = collection.filter(c => c.inWishlist);
+	var tradelist = collection.filter(c => c.upForTrade);
+	setListeners();
 	//for pokemon in wishlist, create div with attributes and make it a link to the results page
 	createSubmenu("wishlist",wishlist);
 	createSubmenu("trade",tradelist);
-	setTimeout(runSemanticJquery,100);
+	setTimeout(runSemanticJquery,10);
 	//for pokemon in UFT, create div with attributes and make it a link to the results page
 }
 
@@ -51,7 +41,9 @@ function createSubmenu(name,data) {
 
 			newPokemon.append(newTooltip);
 			var link = document.createElement("a");
-			var url = "tradeResults.html?search="+data[i].name;
+			// link.onclick=searchFunc;
+			var searchType = $('.dropdown').dropdown('get value')[0];
+			var url = "tradeResults.html?search="+data[i].name+"&type="+searchType;
 			link.href = url;
 			link.append(newPokemon);
 			wishdiv.append(link);
@@ -103,7 +95,6 @@ function runSemanticJquery() {
         inline: true,
         position: "left center"
       });
-      console.log(document.getElementsByClassName("previewImg"));
 $('.ui.dropdown')
   .dropdown({
     values: [
