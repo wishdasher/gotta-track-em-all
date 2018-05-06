@@ -30,8 +30,9 @@
   crossorigin="anonymous"></script>
 <script src="semantic/dist/semantic.min.js"></script>
 <script src="scripts/behavior.js"></script>
-<script src="scripts/search.js"></script>
+<script src="scripts/database.js"></script>
 <script src="scripts/store.js"></script>
+<script src="scripts/util.js"></script>
 
 </head>
 
@@ -79,18 +80,18 @@
       <div class="ui basic segment">
         <h3 class="ui header">Card database</h3>
         <div class="ui tabular menu">
-          <a class="active item">
+          <a class="item" id="search-all">
             Search all cards
           </a>
-          <a class="item">
+          <a class="active item" id="search-collection">
             Search in collection
           </a>
         </div>
 
         <div class="ui search">
           <div class="ui icon input">
-            <input class="prompt" type="text" placeholder="Search for Pokemon...">
-            <i class="search icon"></i>
+            <input class="prompt" type="text" id="search" placeholder="Search for Pokemon...">
+            <i class="search icon" id="search-icon-input"></i>
           </div>
           <div class="results"></div>
         </div>
@@ -99,91 +100,9 @@
           <div class="ui horizontal divider">
           </div>
         </div>
-        <div class="ui link cards">
 
-          <div class="card custom-card">
-            <div class="image custom-padding">
-              <img class="right floated mini ui image tiny custom-padding" src="img/latias.png">
-            </div>
 
-            <div class="extra content">
-
-  <!--             <div class="ui one buttons">
-                <div class="ui basic green button"></div>
-              </div>
-
-              <div class="ui horizontal divider"></div>
-   -->
-              <div class="ui two buttons">
-                <div class="ui basic green button">Put up for trade</div>
-                <div class="ui basic blue button">Add to wishlist</div>
-              </div>
-            </div>
-          </div>
-          <div class="card custom-card">
-            <div class="image custom-padding">
-              <img class="right floated mini ui image tiny custom-padding" src="img/latias.png">
-            </div>
-
-            <div class="extra content">
-              <div class="ui two buttons">
-                <div class="ui basic green button">Put up for trade</div>
-                <div class="ui basic blue button">Add to wishlist</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card custom-card">
-            <div class="image custom-padding">
-              <img class="right floated mini ui image tiny custom-padding" src="img/latias.png">
-            </div>
-
-            <div class="extra content">
-              <div class="ui two buttons">
-                <div class="ui basic green button">Put up for trade</div>
-                <div class="ui basic blue button">Add to wishlist</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card custom-card">
-            <div class="image custom-padding">
-              <img class="right floated mini ui image tiny custom-padding" src="img/latias.png">
-            </div>
-
-            <div class="extra content">
-              <div class="ui two buttons">
-                <div class="ui basic green button">Put up for trade</div>
-                <div class="ui basic blue button">Add to wishlist</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card custom-card">
-            <div class="image custom-padding">
-              <img class="right floated mini ui image tiny custom-padding" src="img/latias.png">
-            </div>
-
-            <div class="extra content">
-              <div class="ui two buttons">
-                <div class="ui basic green button">Put up for trade</div>
-                <div class="ui basic blue button">Add to wishlist</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card custom-card">
-            <div class="image custom-padding">
-              <img class="right floated mini ui image tiny custom-padding" src="img/latias.png">
-            </div>
-
-            <div class="extra content">
-              <div class="ui two buttons">
-                <div class="ui basic green button">Put up for trade</div>
-                <div class="ui basic blue button">Add to wishlist</div>
-              </div>
-            </div>
-          </div>
+        <div class="ui link cards" id="card-results">
 
         </div>
 

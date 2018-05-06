@@ -101,9 +101,7 @@ body {
 }
 
 .custom-card {
-	flex-grow: .15;
-	flex-shrink: 0;
-	flex-basis: 0%;
+	flex: .3;
 	height: auto;
 }
 
