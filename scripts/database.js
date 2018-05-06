@@ -143,6 +143,8 @@ var createCard = (card) => {
 	plusIcon.setAttribute("class", "plus icon");
 	plusButton.appendChild(plusIcon);
 
+	let tradeButton = document.createElement("button");
+
 	minusButton.addEventListener("click", (evt) => {
 		count--;
 		card.count = count;
@@ -150,8 +152,10 @@ var createCard = (card) => {
 		countField.innerHTML = count;
 		if (count) {
 			minusButton.setAttribute("class", "ui compact icon red button");
+			tradeButton.classList.remove("disabled");
 		} else {
 			minusButton.setAttribute("class", "ui compact icon disabled red button");
+			tradeButton.classList.add("disabled");
 		}
 	});
 
@@ -176,12 +180,21 @@ var createCard = (card) => {
 	let buttonDiv = document.createElement("div");
 	buttonDiv.setAttribute("class", "ui two buttons");
 
-	let tradeButton = document.createElement("button");
+	// moved up for minus button edge case
+	// let tradeButton = document.createElement("button");
 	if (trade) {
-		tradeButton.setAttribute("class", "ui basic red button");
+		if (count) {
+			tradeButton.setAttribute("class", "ui basic red button");
+		} else {
+			tradeButton.setAttribute("class", "ui basic disabled red button");
+		}
 		tradeButton.innerHTML = removeTradeString;
 	} else {
-		tradeButton.setAttribute("class", "ui orange button");
+		if (count) {
+			tradeButton.setAttribute("class", "ui orange button");
+		} else {
+			tradeButton.setAttribute("class", "ui disabled orange button");
+		}
 		tradeButton.innerHTML = addTradeString;
 	}
 	tradeButton.addEventListener("click", (evt) => {
