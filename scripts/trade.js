@@ -1,18 +1,20 @@
 function createPage() {
 	//read json
 	console.log('here');
+	createDropdown();
 	var collection = localStorage.getItem("collection") ?
 		JSON.parse(localStorage.getItem("collection")) : cards.cards;
 	console.log(collection);
 	// var wishlist = [{"name": "Mewtwo", "set": "Evolutions"},{"name": "Raichu", "moves": ["Electrosmash","Thunder"], "set": "FuriousFists"},{"name": "Bulbasaur", "moves":["Shake Vine","Bullet Seed"], "set": "Team_Magma_vs_Team_Aqua" }];
 	// var tradelist = [{"name": "Charizard", "set": "Evolutions"},{"name": "Absol", "moves": ["Mach Claw"], "set": "Roaring_Skies"},{"name": "Latias", "moves": ["Psychic Sphere", "Psychic Prism"], "set": "Holon_Phantoms"}];
+	var searchType = getURLParam("type");
 	var wishlist = collection.filter(c => c.inWishlist);
 	var tradelist = collection.filter(c => c.upForTrade);
 	setListeners();
 	//for pokemon in wishlist, create div with attributes and make it a link to the results page
 	createSubmenu("wishlist",wishlist);
 	createSubmenu("trade",tradelist);
-	setTimeout(runSemanticJquery,10);
+	runSemanticJquery(searchType);
 	//for pokemon in UFT, create div with attributes and make it a link to the results page
 }
 
@@ -41,9 +43,8 @@ function createSubmenu(name,data) {
 
 			newPokemon.append(newTooltip);
 			var link = document.createElement("a");
-			// link.onclick=searchFunc;
-			var searchType = $('.dropdown').dropdown('get value')[0];
-			var url = "tradeResults.html?search="+data[i].name+"&type="+searchType;
+
+			var url = "tradeResults.html?search="+data[i].name+"&type="+name;
 			link.href = url;
 			link.append(newPokemon);
 			wishdiv.append(link);
@@ -54,7 +55,7 @@ function createSubmenu(name,data) {
 
 function addInfo(data, outerDiv) {
 	var nameText = document.createElement("div");
-	nameText.className = "text";
+	nameText.className = "text cardName";
 	nameText.innerHTML = data.name + " ";
 
 	var setImg = document.createElement("img");
@@ -80,11 +81,6 @@ function addInfo(data, outerDiv) {
 }
 
 function runSemanticJquery() {
-       $('.card')
-      .popup({
-        inline: true,
-        position: "bottom center",
-      });
      $('.wishlistPreview')
       .popup({
         inline: true,
@@ -95,17 +91,20 @@ function runSemanticJquery() {
         inline: true,
         position: "left center"
       });
-$('.ui.dropdown')
+}
+
+function createDropdown() {
+	$('.ui.dropdown')
   .dropdown({
     values: [
       {
         name: 'Users Who Want',
-        value: 'trade'
+        value: 'trade',
       },
       {
         name     : 'Users Who Have',
         value    : 'wishlist',
-        selected : true,
+        selected: true,
       }
     ]
   })
@@ -113,10 +112,11 @@ $('.ui.dropdown')
 }
 
 function searchFunc() {
-	var searchTerm = document.getElementById("search").value;
-	var searchType = $('.dropdown').dropdown('get value')[0];
-	var url = "tradeResults.html?search="+searchTerm+"&type="+searchType;
-	window.location.href = url;
+	console.log(arguments);
+	// var searchTerm = document.getElementById("search").value;
+	// var searchType = $('.ui.dropdown').dropdown('get value')[0];
+	// var url = "tradeResults.html?search="+searchTerm+"&type="+searchType;
+	// window.location.href = url;
 }
 
 // function createTooltip(div,name) {

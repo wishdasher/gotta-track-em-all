@@ -83,6 +83,10 @@
 	padding: 5px;
 
 }
+.cardName {
+	font-size: 16px;
+	font-weight: bold;
+}
 
 .column {
 	border: 5px solid #00B894;
@@ -124,6 +128,10 @@
 
 #matches {
 	padding-top: 20px;
+}
+
+.numMatchesDiv {
+	font-weight: bold;
 }
 .infoDiv {
 	display: grid;

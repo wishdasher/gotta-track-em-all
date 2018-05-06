@@ -118,16 +118,17 @@ main {
 	height: inherit;
 }
 
-@media (min-width: 840px) {
+@media (min-width: 2000px) {
 	main {
 		width: calc(100vw - 260px);
 	}
 }
 
-@media (min-width: 730px) {
+@media (max-width: 840px) {
 	main {
 		width: calc(100vw - 150px);
 	}
+}
 
 .extra-wrapper {
 	padding: 7px 7px !important;
