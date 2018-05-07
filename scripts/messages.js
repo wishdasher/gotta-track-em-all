@@ -53,6 +53,15 @@ function updateHTML() {
 
 
 function initializeMessages() {
+	document.getElementById("search").addEventListener("keypress", (evt) => {
+		var val = document.getElementById("search").value;
+		if (evt.keyCode === 13 && "ash".includes(val.toLowerCase())) { // enter key
+			document.getElementsByClassName("friend")[0].style.display = "grid";
+		} else if (evt.keyCode === 13 && !"Ash".includes(val.toLowerCase())) {
+			document.getElementsByClassName("friend")[0].style.display = "none";
+		}
+	});
+
 	if (!localStorage.getItem("messages"))
 	{
 		var obj = {"list": []}

@@ -40,7 +40,7 @@ function createPage() {
 	preview("Wishlist", "inWishlist", collection);
 	preview("Up For Trade", "upForTrade", collection); }
 	else {
-		preview("Collection", "inWishlist", collection);
+		preview(" Collection", "inWishlist", collection);
 		preview("Wishlist", "count", collection);
 		preview("Up For Trade", "inWishlist", collection);
 	}
@@ -54,6 +54,11 @@ function createPage() {
 		document.getElementById("unfriend").style.display = "table-caption";
 		document.getElementById("friend").style.display = "none";
 	}
+
+	$('.collectionPreviewImg').popup({
+        inline: true,
+        position: "right center"
+      })
 }
 
 function friend() {
@@ -75,7 +80,14 @@ function preview(previewName, variableName, collection) {
 	collectionPreview.className="collectionPreview";
 	var collectionHeader = document.createElement("div");
 	collectionHeader.className = "ui header";
-	collectionHeader.innerHTML = previewName;
+	collectionHeader.innerHTML = previewName + " ";
+	if (previewName=="Collection") {
+		var goToCollection = document.createElement("div");
+		goToCollection.addEventListener('click', () => {window.location="file:///Users/margaret/Documents/gotta-track-em-all/database.html"})
+		goToCollection.className = "ui mini teal button";
+		goToCollection.innerHTML = "Go to Collection";
+		collectionHeader.append(goToCollection);
+	}
 	collectionPreview.append(collectionHeader);
 
 	var collectionDiv = document.createElement("div");
@@ -83,9 +95,19 @@ function preview(previewName, variableName, collection) {
 	var usersCollection = collection.filter(c => c[variableName]);
 	for (var i=0; i<usersCollection.length; i++) {
 		var actualImg = document.createElement("img");
-		actualImg.className = "collectionPreviewImg";
+		actualImg.className = "collectionActualImg";
 		actualImg.src = usersCollection[i].src;
-		collectionDiv.append(actualImg);
+
+		var previewImg = document.createElement("img");
+		previewImg.className = "collectionPreviewImg";
+		previewImg.src = usersCollection[i].src;
+
+		collectionDiv.append(previewImg);
+
+		var newTooltip = document.createElement("div");
+		newTooltip.className = "ui special popup";
+		newTooltip.append(actualImg);
+		collectionDiv.append(newTooltip);
 	}
 	document.getElementsByClassName("noscroll")[0].append(collectionPreview);
 }

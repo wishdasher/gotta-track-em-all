@@ -47,10 +47,13 @@
 	height:100px;
 	padding-right: 10px;
 }*/
-
+.tradeTitle {
+	margin-top:15px !important;
+	margin-left: 15px !important;
+}
 
 #searchBar {
-	padding-top: 50px;
+	padding-top: 20px;
 	padding-bottom: 20px;
 	display: flex;
 	justify-content:center;
@@ -102,6 +105,16 @@
 	float: right;
 	cursor: pointer;
 }
+#yesUndo {
+	text-decoration: underline;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.undo {
+	text-align: center;
+}
+
 /*.info {
 	grid-column-start:2;
 	text-align: left;

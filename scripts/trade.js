@@ -98,6 +98,31 @@ function addInfo(data, name,outerDiv,collection) {
 			var wishlist = collection.filter(c => c.upForTrade);
 		}
 		createSubmenu(name,wishlist,collection);
+
+
+
+		var undoMessage = document.getElementsByClassName("undo")[0];
+		console.log(undoMessage);
+		undoMessage.innerHTML = "You have just deleted " + data.name +". <br> Do you wish to <span id='yesUndo'>undo</span>?";
+		undoMessage.style.display = "block";
+		document.getElementById("yesUndo").addEventListener("click", () => {
+			if (name=="wishlist") {
+				data.inWishlist = !data.inWishlist;
+			} else {
+				data.upForTrade = !data.upForTrade;
+		}
+		localStorage.setItem("collection", JSON.stringify(collection));
+		var wishdiv = document.getElementById(name);
+		wishdiv.innerHTML = "";
+		if (name=="wishlist") {
+			var wishlist = collection.filter(c => c.inWishlist);
+		} else {
+			var wishlist = collection.filter(c => c.upForTrade);
+		}
+		createSubmenu(name,wishlist,collection);
+		undoMessage.style.display = "none";
+		});
+		setTimeout(()=> {undoMessage.style.display = "none";},7000);
 	});
 	outerDiv.append(closeDiv);
 	outerDiv.append(nameText);

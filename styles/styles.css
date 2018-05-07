@@ -141,6 +141,12 @@ main {
 	}
 }
 
+@media (max-width: 700px) {
+	main {
+		width: calc(100vw - 60px);
+	}
+}
+
 .extra-wrapper {
 	padding: 7px 7px !important;
 }
@@ -172,7 +178,7 @@ main {
   display: grid;
   height:inherit;
   padding: 10px;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 3fr .5fr;
 }
 
 .mainMessage {
@@ -189,13 +195,15 @@ main {
   grid-row-start: 1;
   grid-row-end: 3;
   padding-top:15px;
+  padding-left:20px;
+	border-left: .5px solid black;
 }
 
 .friend {
 	display: grid;
 	grid-template-columns: 1fr 3fr;
 	padding:15px;
-	border-left: 1px black;
+
 }
 
 .friendName {
@@ -228,10 +236,9 @@ main {
 	grid-column-start:1;
   	grid-column-end:2;
   	grid-row-start:1;
-	margin-top: 15px;
+	margin-top: 10px;
 	margin-left: 15px;
 	font-weight: bold;
-	font-size: 20px
 }
 
 .people {
@@ -308,6 +315,7 @@ main {
 	height: 80%;
 	max-height: 80%;
 	overflow-y: auto;
+	margin-bottom: 5px;
 }
 
 .message-input {
