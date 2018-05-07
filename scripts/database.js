@@ -96,10 +96,6 @@ var createCard = (card) => {
 	let countDiv = document.createElement("div");
 	countDiv.setAttribute("class", "ui three buttons");
 
-	// let collectionLabel = document.createElement("div");
-	// collectionLabel.setAttribute("class", "ui button disabled");
-	// collectionLabel.innerHTML = collectionLabelString;
-
 	let minusButton = document.createElement("button");
 	if (count) {
 		minusButton.setAttribute("class", "ui compact icon red button");
@@ -140,7 +136,6 @@ var createCard = (card) => {
 		reloadResults();
 	});
 
-	// countDiv.appendChild(collectionLabel);
 	countDiv.appendChild(minusButton);
 	countDiv.appendChild(countField);
 	countDiv.appendChild(plusButton);
@@ -173,7 +168,7 @@ var createCard = (card) => {
 		tradeButton.innerHTML = addTradeString;
 	}
 	tradeButton.addEventListener("click", (evt) => {
-		card.upForTrade = !trade
+		card.upForTrade = !trade;
 		localStorage.setItem("collection", JSON.stringify(collection));
 		reloadResults();
 	});
@@ -196,18 +191,9 @@ var createCard = (card) => {
 	buttonDiv.appendChild(wishlistButton);
 	extraDiv.appendChild(buttonDiv);
 	cardDiv.appendChild(extraDiv);
-	// TODO add listeners to make buttons affect data
 
 	return cardDiv;
-
 }
-
-
-	// 	candyImg.setAttribute("src", getImageForCandy(detail.candy));
-	// candyImg.setAttribute("class", "candy-image");
-	// candyImg.setAttribute("data-row", row);
-	// candyImg.setAttribute("data-col", col);
-
 
 var matchQuery = (query, name) => {
 	return name.toLowerCase().includes(query.toLowerCase());
