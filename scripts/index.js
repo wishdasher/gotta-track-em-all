@@ -22,13 +22,13 @@ var createPage = () => {
 		stats.append(statDiv);
 	}
 	var goToCollection = document.createElement("div");
-	goToCollection.addEventListener('click', () => {window.location="file:///Users/margaret/Documents/gotta-track-em-all/database.html"})
+	goToCollection.addEventListener('click', () => {window.location="database.html"})
 	goToCollection.className = "ui teal button indexButton";
 	goToCollection.innerHTML = "Go to Collection";
 	document.getElementsByClassName("collection-stats")[0].append(goToCollection);
 
 	var goToCommunity = document.createElement("div");
-	goToCollection.addEventListener('click', () => {window.location="file:///Users/margaret/Documents/gotta-track-em-all/community.html"})
+	goToCommunity.addEventListener('click', () => {window.location="community.html"})
 	goToCommunity.className = "ui teal button indexButton";
 	goToCommunity.innerHTML = "Go to Community";
 	document.getElementsByClassName("notifications2")[0].append(goToCommunity);
