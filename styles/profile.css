@@ -71,7 +71,10 @@
 	flex-direction:column;
 	margin: 10px;
 }
-
+.Name {
+	font-size: 27px;
+	font-weight: bold;
+}
 .collectionPreviewImg {
 	height: 60px;
 	margin: 5px;

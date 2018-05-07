@@ -8,6 +8,7 @@ function createPage() {
 	}
 	if (pageOwner == "Ben") {
 		document.getElementById("addFriend").style.display = "none";
+		document.getElementById("sendMessage").style.display = "none";
 	}
 	console.log(pageOwner);
 	var fakeInfo = {"Ben": {"Name": "Ben", "Age": "20", "Location": "Cambridge, MA", "fav": "Pikachu"}, "Ash": {"Name": "Ash", "Age": "25", "Location": "Boston, MA", "fav": "Charmander"}}
@@ -24,12 +25,14 @@ function createPage() {
 	for (var i=0; i<keys.length; i++) {
 		var tempDiv = document.createElement("div");
 		if (keys[i] == "fav") { 
-			tempDiv.innerHTML = "Favorite Pokemon: " + fakeInfo[pageOwner][keys[i]];
+			tempDiv.innerHTML = "<b>Favorite Pokemon: </b>" + fakeInfo[pageOwner][keys[i]];
+		} else 	if (keys[i] == "Name") { 
+			tempDiv.innerHTML = fakeInfo[pageOwner][keys[i]];
 		}
 		else {
-		tempDiv.innerHTML = keys[i] + ": " + fakeInfo[pageOwner][keys[i]];
+		tempDiv.innerHTML = "<b>"+keys[i] + "</b>: " + fakeInfo[pageOwner][keys[i]];
 		}
-		tempDiv.className = "infoData";
+		tempDiv.className = "infoData " + keys[i];
 		info.append(tempDiv);
 	}
 	if (pageOwner=="Ben") {
