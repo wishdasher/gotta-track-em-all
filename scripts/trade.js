@@ -1,6 +1,5 @@
 function createPage() {
 	//read json
-	createDropdown();
 	var collection = localStorage.getItem("collection") ?
 		JSON.parse(localStorage.getItem("collection")) : cards.cards;
 	// var wishlist = [{"name": "Mewtwo", "set": "Evolutions"},{"name": "Raichu", "moves": ["Electrosmash","Thunder"], "set": "FuriousFists"},{"name": "Bulbasaur", "moves":["Shake Vine","Bullet Seed"], "set": "Team_Magma_vs_Team_Aqua" }];
@@ -118,24 +117,6 @@ function runSemanticJquery() {
         inline: true,
         position: "left center"
       });
-}
-
-function createDropdown() {
-	$('.ui.dropdown')
-  .dropdown({
-    values: [
-      {
-        name: 'Users Who Want',
-        value: 'trade',
-      },
-      {
-        name     : 'Users Who Have',
-        value    : 'wishlist',
-        selected: true,
-      }
-    ]
-  })
-;
 }
 
 function searchFunc() {

@@ -83,11 +83,11 @@ function createPage() {
 		match.append(infoDiv);
 		matches.append(match);
 	}
-} else if (!matchesSet) {
+} else if (!matchesSet && showCards.length>0) {
 	numMatchesDiv.innerHTML = "The pokemon you have searched (" + searchValue + ") does not have a card in the " + set + " set in our database :(";
 	matches.append(numMatchesDiv);
 }
-else if (showCards.length<0) {
+else if (showCards.length==0) {
 	numMatchesDiv.innerHTML = "The pokemon you have searched (" + searchValue + ") is not in our database :(";
 	matches.append(numMatchesDiv);
 } else {
