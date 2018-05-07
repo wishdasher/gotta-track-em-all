@@ -144,6 +144,10 @@
   align-items: center;
   margin-left: auto;
   padding-left: 10px;
+  grid-row-gap: 0.5em;
+  width: 98%;
+  height: 100%;
+
 }
 
 #league-name{
@@ -159,8 +163,7 @@
   grid-row-start: 1;
   grid-row-end: 2;
   width: 15em;
-  height: 2em;
-  just-self: center;
+  height: 2.5em;
 }
 
 #address{
