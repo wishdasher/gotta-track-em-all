@@ -1,3 +1,5 @@
+/* community styles */
+
 #grid{
   display: grid;
   height: 100%;
@@ -71,11 +73,64 @@
   padding-top: 30px;
 }
 
-.ui.compact.menu{
-  width:60%;
-  height:80%;
+.ui.dropdown{
+  width:7em !important;
+  height:80% !important;
+  border-radius: 5px;
+}
+
+.ui.dropdown.selection{
+  min-width: 7em !important;
+  height:80% !important;
 }
 
 .ui.teal.button.community{
   margin-left: 10px;
+}
+
+
+/* League styles */
+.header{
+  color: #00b894 !important;
+}
+
+.description.contact{
+  display:grid;
+  grid-template-columns: 1fr 10fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.small.envelope.outline.icon{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  margin:auto;
+}
+
+.email{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  margin:auto;
+  margin-left: 0px;
+
+}
+
+.small.phone.icon{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  margin:auto;
+}
+
+.phone-number{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  margin:auto;
+  margin-left: 0px;
 }

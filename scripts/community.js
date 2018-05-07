@@ -76,14 +76,25 @@ function searchFunc() {
 
 function moveToLocation(lat, lng, distance){
   console.log(distance);
-  map = new google.maps.Map(document.getElementById('map'), { zoom: 12, center: mewtwosday });
+  map = new google.maps.Map(document.getElementById('map'), { zoom: 9, center: mewtwosday });
   var mewtwosday = {lat: 37.772703, lng: -122.43739};
   var marker = new google.maps.Marker({ position: mewtwosday, map: map });
-  if (distance > 5 && distance <= 10){
-    var games = {lat: 37.867881, lng: -122.258463};
-    var marker2 = new google.maps.Marker({ position: games, map: map });
-    var burlinggame = {lat: 37.595973, lng: -122.3851}
-    var marker2 = new google.maps.Marker({ position: burlinggame, map: map });
+  if (distance > 5){
+    var d20 = {lat: 37.766098, lng: -122.241221};
+    var marker2 = new google.maps.Marker({ position: d20, map: map });
+  }
+  if (distance > 10 && distance <=25){
+    console.log("hiiii");
+    var gamesOfBerk = {lat: 37.867881, lng: -122.258463};
+    var marker3 = new google.maps.Marker({ position: gamesOfBerk, map: map });
+    var johnny = {lat: 37.595973, lng: -122.3851}
+    var marker4 = new google.maps.Marker({ position: johnny, map: map });
+    var eudemonia = {lat: 37.872218, lng: -122.267484}
+    var marker5 = new google.maps.Marker({ position: eudemonia, map: map });
+    var diamond = {lat: 37.973881, lng: -122.044422}
+    var marker6 = new google.maps.Marker({ position: diamond, map: map });
+    var strike = {lat: 38.108081, lng: -122.572832}
+    var marker7 = new google.maps.Marker({ position: strike, map: map });
   }
 
   // using global variable:
