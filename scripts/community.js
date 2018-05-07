@@ -1,12 +1,28 @@
 var leagueLocation;
 var searchDistance;
 var createPage = () => {
-  createResults("boston",25);
-  var searchLocation = getURLParam("searchLocation") ? getURLParam("searchLocation") : "boston,ma";
+  var searchLocation = getURLParam("searchLocation") ? getURLParam("searchLocation") : "";
   var searchBar = document.getElementById("search");
-  searchBar.value = searchLocation;
   var searchDistance = getURLParam("distance") ? getURLParam("distance") : "5";
-  $('#distance-select').dropdown('set selected', searchDistance);
+  var leagueSelected = getURLParam("league") ? getURLParam("league") : "MIT Pokémon League";
+  if(searchBar){
+    createResults("boston",25);
+    if(searchLocation=="boston"){
+      searchLocation = "Boston, MA";
+      searchBar.value = searchLocation;
+      setTimeout(searchFunc,1000);
+    }
+    if(searchLocation=="sanFrancisco"){
+      searchLocation = "San Francisco, CA";
+      searchBar.value = searchLocation;
+      setTimeout(searchFunc,1000);
+    }
+
+    $('#distance-select').dropdown('set selected', searchDistance);
+  }
+  else{
+    createAddressCard(leagueSelected,searchLocation,searchDistance);
+  }
 }
 document.addEventListener("DOMContentLoaded", createPage);
 
@@ -18,8 +34,6 @@ function createResults(location, distance) {
   var leaguesInLoc;
   if (location == "boston"){leaguesInLoc = leagues.boston;}
   if (location == "sanFrancisco"){leaguesInLoc = leagues.sanFrancisco;}
-  console.log(location);
-  console.log(leaguesInLoc);
   for(var i=0; i<leaguesInLoc.length;i++){
     var league = leaguesInLoc[i];
       if (league.distance <= distance){
@@ -106,4 +120,47 @@ function moveToLocation(lat, lng, distance){
 
   // using global variable:
   map.panTo(mewtwosday);
+}
+
+function createAddressCard(leagueSelected,searchLocation,searchDistance){
+
+  document.getElementById("league-name").innerHTML = leagueSelected;
+
+  var addressCard = document.createElement("div");
+  addressCard.className= "teal ui cards";
+
+  var card = document.createElement("div");
+  card.className= "card";
+
+  var content = document.createElement("div");
+  content.className= "content";
+
+  var headerLeague = document.createElement("div");
+  headerLeague.className= "header league";
+  headerLeague.innerHTML= "League Address";
+
+  var description = document.createElement("div");
+  description.className= "description";
+  var leagueMatched = leagues[searchLocation].filter(c=>matchQuery(leagueSelected,c.name))[0];
+  var leagueLoc = leagueMatched.street + "<br>" + leagueMatched.cityState + " " + leagueMatched.zipCode;
+  description.innerHTML= leagueLoc;
+
+
+  document.getElementById("address").append(addressCard);
+  addressCard.append(card);
+  card.append(content);
+  content.append(headerLeague);
+  content.append(description);
+}
+
+function backFunc(){
+  var searchLocation = getURLParam("searchLocation") ? getURLParam("searchLocation") : "boston";
+  var searchDistance = getURLParam("distance") ? getURLParam("distance") : "5";
+  var leagueSelected = getURLParam("league") ? getURLParam("league") : "MIT Pokémon League";
+  var url = "community.html?league=" + leagueSelected + "&searchLocation=" + searchLocation + "&distance=" + searchDistance;
+  window.location=url;
+}
+
+var matchQuery = (query, name) => {
+	return name.toLowerCase() == (query.toLowerCase());
 }

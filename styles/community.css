@@ -135,3 +135,73 @@
   margin:auto;
   margin-left: 0px;
 }
+
+#league-info{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows:0.5fr 0.5fr 1fr 1fr 2fr;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  padding-left: 10px;
+}
+
+#league-name{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.ui.teal.button.league{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  width: 15em;
+  height: 2em;
+  just-self: center;
+}
+
+#address{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+#contact{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+
+#currentSeason{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+#nextSeason{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+
+#playTimes{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 5;
+  grid-row-end: 6;
+  align-self: flex-start;
+}
+
+.card{
+  height: 90% !important;
+  width:90% !important;
+  min-height: 90% !important;
+  min-width:90% !important;
+}
