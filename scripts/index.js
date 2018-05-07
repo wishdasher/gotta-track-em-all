@@ -6,7 +6,7 @@ var createPage = () => {
 	var wishlistSize = collection.filter(c => c.inWishlist).length;
 	var sets = [];
 	for (var i=0; i<ownedCards.length; i++) {
-		if (sets.includes(ownedCards[i].set)) {
+		if (!sets.includes(ownedCards[i].set)) {
 			sets.push(ownedCards[i].set);
 		}
 	}
