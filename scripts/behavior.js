@@ -18,7 +18,6 @@ function setListeners() {
 		checkWindow();
 		window.addEventListener("resize", (evt) => {
 		checkWindow();
-		console.log(document.body.clientWidth);
 	});
 }
 

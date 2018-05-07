@@ -30,7 +30,8 @@
   crossorigin="anonymous"></script>
 <script src="semantic/dist/semantic.min.js"></script>
 <script src="scripts/behavior.js"></script>
-<script src="scripts/profile.js"></script>
+<script src="scripts/store.js"></script>
+
 
 </head>
 <body>
@@ -75,8 +76,20 @@
   <div class="pusher main-content">
 
    <main>
-
-
+     <div id="grid">
+       <div id="mapSearch">
+         <div class="ui search">
+           <div class="ui icon input">
+             <input class="prompt" type="text" id="search" placeholder="Search by City, State or zip code...">
+           </div>
+         </div>
+       </div>
+       <div id="map"></div>
+       <script>
+        </script>
+       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLhVHsddgAhtEg5URM5FAyYrwVhctDkZA&callback=initMap"> </script>
+       <div id ="mapResults"></div>
+     </div>
    </main>
    </div>
 </div>
