@@ -154,9 +154,9 @@ var createCard = (card) => {
 	// let tradeButton = document.createElement("button");
 	if (trade) {
 		if (count) {
-			tradeButton.setAttribute("class", "ui basic orange button tradeButton");
+			tradeButton.setAttribute("class", "ui basic orange button");
 		} else {
-			tradeButton.setAttribute("class", "ui basic disabled orange button tradeButton");
+			tradeButton.setAttribute("class", "ui basic disabled orange button");
 		}
 		tradeButton.innerHTML = removeTradeString;
 	} else {

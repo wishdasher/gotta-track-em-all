@@ -32,37 +32,6 @@ var createPage = () => {
 	goToCommunity.className = "ui teal button indexButton";
 	goToCommunity.innerHTML = "Go to Community";
 	document.getElementsByClassName("notifications2")[0].append(goToCommunity);
-
-	checkWindowIndex();
-		window.addEventListener("resize", (evt) => {
-		checkWindowIndex();
-	});
 }
-
-function checkWindowIndex() {
-		if (document.body.clientWidth < 700) {
-			var labels = document.getElementsByClassName("column");
-			for (var i=0;i<labels.length;i++) {
-			labels[i].className = labels[i].className.replace("five","seven");
-			labels[i].className = labels[i].className.replace("six","seven");
-		}
-		}
-	else if (document.body.clientWidth < 840) {
-			var labels = document.getElementsByClassName("column");
-			for (var i=0;i<labels.length;i++) {
-			labels[i].className = labels[i].className.replace("five","six");
-			labels[i].className = labels[i].className.replace("seven","six");
-		}
-		
-	} else if (document.body.clientWidth > 840) {
-			var labels = document.getElementsByClassName("column");
-			for (var i=0;i<labels.length;i++) {
-			labels[i].className = labels[i].className.replace("six","five");
-			labels[i].className = labels[i].className.replace("seven","five");
-		}
-	}
-}
-
-
 
 document.addEventListener("DOMContentLoaded", createPage);
