@@ -7,6 +7,7 @@ var createPage = () => {
   searchBar.value = searchLocation;
   var searchDistance = getURLParam("distance") ? getURLParam("distance") : "5";
   $('#distance-select').dropdown('set selected', searchDistance);
+  console.log(leagues);
 }
 document.addEventListener("DOMContentLoaded", createPage);
 
@@ -17,9 +18,11 @@ function runSemanticJquery() {
 function createResults(location, distance) {
   var leaguesInLoc;
   if (location == "boston"){leaguesInLoc = leagues.boston;}
-  if (location == "sanFrancisco"){leaguesInLoc = leagues.sanFrancisco;}
+   else if (location == "sanFrancisco"){leaguesInLoc = leagues.sanFrancisco;}
+   else {leaguesInLoc = [];}
   console.log(location);
   console.log(leaguesInLoc);
+  if (leaguesInLoc.length>0) {
   for(var i=0; i<leaguesInLoc.length;i++){
     var league = leaguesInLoc[i];
       if (league.distance <= distance){
@@ -53,6 +56,13 @@ function createResults(location, distance) {
       content.append(leagueAddress);
     }
   }
+} else {
+  var noResults = document.createElement("div");
+  noResults.innerHTML = "There are 0 leagues in our database for this location and distance. Sorry!"
+  document.getElementById("map").innerHTML = "";
+  document.getElementById("mapResults").innerHTML = "";
+  document.getElementById("map").append(noResults);
+}
 }
 
 function searchFunc() {
