@@ -47,6 +47,7 @@
 	height:100px;
 	padding-right: 10px;
 }*/
+
 .tradeTitle {
 	margin-top:15px !important;
 	margin-left: 15px !important;
@@ -109,6 +110,7 @@
 	text-decoration: underline;
 	font-weight: bold;
 	cursor: pointer;
+	color: #e17055;
 }
 
 .undo {
@@ -192,4 +194,29 @@
 .message1 {
 	grid-column-start: 4;
 	grid-row-start: 1;
+}
+
+
+@media (max-width: 840px) {
+               #searchBar {
+               flex-direction: row;
+               padding-top: 20px;
+               padding-bottom: 20px;
+               text-align: center;
+       }
+       .previewImg {
+       	height:100px;
+       }
+}
+
+
+@media (max-width: 600px) {
+       #searchBar {
+               flex-direction: column;
+               padding:10px;
+               text-align: center;
+       }
+       .previewImg {
+       	height:22vw;
+       }
 }

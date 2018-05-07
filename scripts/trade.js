@@ -172,13 +172,13 @@ function checkWindowTrade() {
 	else if (document.body.clientWidth < 840) {
 			var labels = document.getElementsByClassName("outerDiv");
 			for (var i=0;i<labels.length;i++) {
-			labels[i].style.display = "none";
+			labels[i].style.display = "block";
 		}
 		
 	} else if (document.body.clientWidth > 840) {
 			var labels = document.getElementsByClassName("outerDiv");
 			for (var i=0;i<labels.length;i++) {
-			labels[i].style.display = "none";
+			labels[i].style.display = "block";
 		}
 	}
 }
