@@ -95,6 +95,7 @@
 .column {
 	border: 5px solid #00B894;
 	margin: 10px;
+	border-radius: 15px;
 }
 
 .close {

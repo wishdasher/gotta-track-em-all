@@ -30,7 +30,8 @@
   crossorigin="anonymous"></script>
 <script src="semantic/dist/semantic.min.js"></script>
 <script src="scripts/behavior.js"></script>
-
+<script src="scripts/store.js"></script>
+<script src="scripts/index.js"></script>
 </head>
 
 <body>
@@ -74,25 +75,25 @@
 
   <div class="pusher main-content">
     <main>
-      <div class="ui basic segment">
-        <div class="homepage">
+      <div class="noscroll">
+      <div class="ui centered grid" id="indexGrid">
 
 
-          <div class="collection-stats box">
+          <div class="ui five wide column collection-stats box">
 
-            <div class="clickable"> <div class="box-title-outer"><a href="database.html"><p class="box-title"> My Collection </p></a></div>
+            <div class="clickable"> <div class="box-title-outer"><p class="box-title"> My Collection </p></div>
             <br>
             <br>
-            <div class="stats">
-              <p class="box-content"> Number of Cards: 243  </p>
-              <p class="box-content"> Wishlist Size: 4 </p>
+            <div id="stats">
+<!--               <p class="box-content"> Number of Cards: 243  </p>
+              <p class="box-content"> Wishlist Size: 4 </p>s
               <p class="box-content"> Number of Sets: 19  </p>
-              <p class="box-content"> Number of Friends: 0 </p>
+              <p class="box-content"> Number of Friends: 0 </p> -->
             </div>
             <br>
           </div></div>
-          <div class="notifications2 box">
-            <div class="box-title-outer"><a href="community.html"><p class="box-title"> Community </p></a></div>
+          <div class="ui five wide column notifications2 box">
+            <div class="box-title-outer"><p class="box-title"> Community </p></div>
             <br>
             <div class="notifications">
               <div class="community-content"> Boston Local Pokemon Club Meetup Tommorow </div>
@@ -106,8 +107,8 @@
             </div>
 
           </div>
-        </div>
       </div>
+    </div>
     </main>
   </div>
 </div>
