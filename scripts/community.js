@@ -53,7 +53,7 @@ function createResults(location, distance) {
 
       var leagueName = document.createElement("a");
       leagueName.className = "leagueName";
-      leagueName.innerHTML = league.name;
+      leagueName.innerHTML = "<u>" + league.name + "</u>";
       var url = "league.html?league=" + league.name + "&searchLocation=" + location + "&distance=" + distance;
       leagueName.href = url;
 

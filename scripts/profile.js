@@ -83,7 +83,7 @@ function preview(previewName, variableName, collection) {
 	collectionHeader.innerHTML = previewName + " ";
 	if (previewName=="Collection") {
 		var goToCollection = document.createElement("div");
-		goToCollection.addEventListener('click', () => {window.location="file:///Users/margaret/Documents/gotta-track-em-all/database.html"})
+		goToCollection.addEventListener('click', () => {window.location="database.html"})
 		goToCollection.className = "ui mini teal button";
 		goToCollection.innerHTML = "Go to Collection";
 		collectionHeader.append(goToCollection);

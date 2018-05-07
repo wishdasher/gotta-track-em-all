@@ -66,6 +66,7 @@
 .leagueName{
   color: black;
   font-weight: bold;
+  text-decoration: underline !important;
 }
 
 .ui.header.community{

@@ -12,7 +12,7 @@ var createPage = () => {
 	}
 	var friendCheck = localStorage.getItem("friend") ? localStorage.getItem("friend") : "friend";
 	var friendNum = friendCheck=="friend" ? 1 : 0;
-	var statsList = {"Number Of Cards": ownedCards.length, "Wishlist Size": wishlistSize, "Number of Sets": sets.length, "Number of Friends": friendNum};
+	var statsList = {"Number of Cards": ownedCards.length, "Wishlist Size": wishlistSize, "Number of Sets": sets.length, "Number of Friends": friendNum};
 	var keys = Object.keys(statsList);
 	for (let j=0; j<keys.length; j++) {
 		var statDiv = document.createElement("div");
