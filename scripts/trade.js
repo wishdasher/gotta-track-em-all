@@ -1,10 +1,8 @@
 function createPage() {
 	//read json
-	console.log('here');
 	createDropdown();
 	var collection = localStorage.getItem("collection") ?
 		JSON.parse(localStorage.getItem("collection")) : cards.cards;
-	console.log(collection);
 	// var wishlist = [{"name": "Mewtwo", "set": "Evolutions"},{"name": "Raichu", "moves": ["Electrosmash","Thunder"], "set": "FuriousFists"},{"name": "Bulbasaur", "moves":["Shake Vine","Bullet Seed"], "set": "Team_Magma_vs_Team_Aqua" }];
 	// var tradelist = [{"name": "Charizard", "set": "Evolutions"},{"name": "Absol", "moves": ["Mach Claw"], "set": "Roaring_Skies"},{"name": "Latias", "moves": ["Psychic Sphere", "Psychic Prism"], "set": "Holon_Phantoms"}];
 	var searchType = getURLParam("type");
@@ -12,16 +10,16 @@ function createPage() {
 	var tradelist = collection.filter(c => c.upForTrade);
 	setListeners();
 	//for pokemon in wishlist, create div with attributes and make it a link to the results page
-	createSubmenu("wishlist",wishlist);
-	createSubmenu("trade",tradelist);
+	createSubmenu("wishlist",wishlist,collection);
+	createSubmenu("trade",tradelist,collection);
 	runSemanticJquery(searchType);
 	//for pokemon in UFT, create div with attributes and make it a link to the results page
 }
 
-function createSubmenu(name,data) {
+function createSubmenu(name,data,collection) {
 	var wishdiv = document.getElementById(name);
 	if (data.length >0) {
-		for (var i=0; i<data.length; i++) {
+		for (let i=0; i<data.length; i++) {
 			var newPokemon = document.createElement("div");
 			newPokemon.className = "ui item pokemonDiv";
 			var outerDiv = document.createElement("div");
@@ -32,7 +30,7 @@ function createSubmenu(name,data) {
 			previewImg.src = data[i].src;
 			previewImg.className = "previewImg" + " " + name+"Preview";
 			actualImg.className = "pokepic";
-			addInfo(data[i],outerDiv);
+			addInfo(data[i],name, outerDiv,collection);
 			var newTooltip = document.createElement("div");
 			newTooltip.className = "ui special popup";
 
@@ -43,9 +41,16 @@ function createSubmenu(name,data) {
 
 			newPokemon.append(newTooltip);
 			var link = document.createElement("a");
+			// link.href = url;
 
-			var url = "tradeResults.html?search="+data[i].name+"&type="+name;
-			link.href = url;
+
+			link.addEventListener("click", (evt) => {
+				if (evt.path[0].className!='red window close outline icon') {
+					var url = "tradeResults.html?search="+data[i].name+"&type="+name+"&set="+data[i].set;
+					window.location = url;
+				}
+			});
+
 			link.append(newPokemon);
 			wishdiv.append(link);
 
@@ -53,7 +58,7 @@ function createSubmenu(name,data) {
 	}
 }
 
-function addInfo(data, outerDiv) {
+function addInfo(data, name,outerDiv,collection) {
 	var nameText = document.createElement("div");
 	nameText.className = "text cardName";
 	nameText.innerHTML = data.name + " ";
@@ -74,6 +79,28 @@ function addInfo(data, outerDiv) {
 	healthText.innerHTML = "HP: " + hp;
 
 	nameText.append(setImg);
+
+	var closeDiv = document.createElement("div");
+	closeDiv.title = "Remove";
+	closeDiv.innerHTML = "<i class='red window close outline icon'></i>";
+	closeDiv.className = "close";
+	closeDiv.addEventListener("click", (evt) => {
+		if (name=="wishlist") {
+			data.inWishlist = !data.inWishlist;
+		} else {
+			data.upForTrade = !data.upForTrade;
+		}
+		localStorage.setItem("collection", JSON.stringify(collection));
+		var wishdiv = document.getElementById(name);
+		wishdiv.innerHTML = "";
+		if (name=="wishlist") {
+			var wishlist = collection.filter(c => c.inWishlist);
+		} else {
+			var wishlist = collection.filter(c => c.upForTrade);
+		}
+		createSubmenu(name,wishlist,collection);
+	});
+	outerDiv.append(closeDiv);
 	outerDiv.append(nameText);
 	outerDiv.append(typeText);
 	outerDiv.append(healthText);
@@ -112,11 +139,12 @@ function createDropdown() {
 }
 
 function searchFunc() {
-	console.log(arguments);
-	// var searchTerm = document.getElementById("search").value;
-	// var searchType = $('.ui.dropdown').dropdown('get value')[0];
-	// var url = "tradeResults.html?search="+searchTerm+"&type="+searchType;
-	// window.location.href = url;
+	var searchTerm = document.getElementById("search").value;
+	if (searchTerm!="" && searchTerm!=null) {
+	var searchType = $('.ui.dropdown').dropdown('get value')[0];
+	var set = $('#set-select').dropdown('get value');
+	var url = "tradeResults.html?search="+searchTerm+"&type="+searchType+"&set="+set;
+	window.location.href = url; }
 }
 
 // function createTooltip(div,name) {

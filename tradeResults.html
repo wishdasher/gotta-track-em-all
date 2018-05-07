@@ -31,6 +31,7 @@
   crossorigin="anonymous"></script>
 <script src="semantic/dist/semantic.min.js"></script>
 <script src="scripts/behavior.js"></script>
+<script src="scripts/store.js"></script>
 <script src="scripts/tradeResults.js"></script>
 
 </head>
@@ -74,18 +75,38 @@
 
    <main>
       <div class="noscroll">
-      <div class="ui centered grid" id="searchBar">
-                  <div class="dropdownDiv">
-            <div class="ui dropdown" id="dropdownText">
-               <div class="text"></div>
-               <i class="dropdown icon"></i>
+
+              <div id="searchBar">
+                   <select class="ui dropdown dropdownText" id="dropdownText">
+              <option value="trade">Users who want</option>
+              <option value="wishlist">Users who have</option>
+          </select>
+
+                   <div class="small-spacer"></div>
+          <div class="ui search">
+            <div class="ui icon input">
+              <input class="prompt" type="text" id="search" placeholder="Search for Pokemon...">
             </div>
-         </div>
-         <div class="ui icon input">
-            <input type="text" id="search" placeholder="Enter Pokemon">
-         </div>
-         <div class="ui teal button" onClick=searchFunc()>Search</div>
-      </div>
+            <div class="results"></div>
+          </div>
+
+          <div class="small-spacer"></div>
+
+          <select class="ui dropdown" id="set-select">
+              <option value="ALL">All sets</option>
+              <option value="Neo Destiny">Neo Destiny</option>
+              <option value="Rising Rivals">Rising Rivals</option>
+              <option value="Secret Wonders">Secret Wonders</option>
+              <option value="Unleashed">Unleashed</option>
+          </select>
+
+
+          <div class="small-spacer"></div>
+
+          <div class="ui teal button" onClick=searchFunc()>Search</div>
+        </div>
+
+
       <div class="ui centered grid">
          <div id="matches">
          </div>

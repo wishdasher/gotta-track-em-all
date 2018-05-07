@@ -51,6 +51,9 @@
 
 #searchBar {
 	padding-top: 50px;
+	padding-bottom: 20px;
+	display: flex;
+	justify-content:center;
 }
 .pokepic {
 	height: 300px;
@@ -81,6 +84,7 @@
 	border-top: 2px solid #00B894;
 	margin-top: 2px;
 	padding: 5px;
+	cursor: pointer;
 
 }
 .cardName {
@@ -91,7 +95,11 @@
 .column {
 	border: 5px solid #00B894;
 	margin: 10px;
-/*	padding: 0 !important;*/
+}
+
+.close {
+	float: right;
+	cursor: pointer;
 }
 /*.info {
 	grid-column-start:2;
@@ -104,6 +112,10 @@
 	grid-column-start: 2;
 }*/
 
+.ui.selection.dropdown {
+	min-width: 0px;
+}
+
 .dropdownDiv {
 	margin-top: auto;
 	margin-bottom: auto;
@@ -112,6 +124,10 @@
 	text-align: right;
 }
 
+
+#set-select {
+	min-width: 0px !important;
+}
 
 /*TRADE RESULTS START HERE*/
 
@@ -132,6 +148,7 @@
 
 .numMatchesDiv {
 	font-weight: bold;
+	margin: 10px;
 }
 .infoDiv {
 	display: grid;
@@ -155,6 +172,7 @@
 }
 .want {
 	grid-row-start: 3;
+	display: flex;
 }
 
 .message1 {

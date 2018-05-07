@@ -63,6 +63,9 @@
 	font-size: 20px;
 }
 
+#unfriend {
+	margin-right: 15px;
+}
 .collectionPreview {
 	display: flex;
 	flex-direction:column;

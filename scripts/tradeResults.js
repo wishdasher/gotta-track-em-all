@@ -12,6 +12,15 @@ function createPage() {
 	searchBar.value = searchValue;
 	var searchType = getURLParam("type");
 
+	var set = getURLParam("set");
+
+	let showCards = collection.filter(
+		c => matchQuery(searchValue, c.name));
+	console.log(set);
+	var listToCheckSize = (searchType=="trade" ? collection.filter(c => c.inWishlist).length: collection.filter(c => c.upForTrade).length);
+	var matchesSet = (set!= "ALL"&&set!=null ? showCards.filter(c => c.set.replace(" ","")==set.replace(" ","")).length>0 : true);
+	if (showCards.length>0 && listToCheckSize>0 && matchesSet) {
+
 	if (numMatches==1) {
 		numMatchesDiv.innerHTML = "You have " + numMatches + " match!";
 	} else {
@@ -39,10 +48,10 @@ function createPage() {
 				newTooltip.className = "ui special popup";
 
 				if (searchType=="wishlist") {
-				singleInfoDiv.innerHTML = "<i class='star icon'></i> Wants <a class='pop'><u>1</u></a> of your cards";
+				singleInfoDiv.innerHTML = "<i class='star icon'></i> Wants &nbsp;<a class='pop'> <u> 1 </u> </a> &nbsp; of your cards up for trade";
 				var trade = collection.filter(c => c.upForTrade)[0];
 			} else {
-				singleInfoDiv.innerHTML = "<i class='star icon'></i> Has <a class='pop'><u>1</u></a> of the cards you want";
+				singleInfoDiv.innerHTML = "<i class='star icon'></i> Has  &nbsp;<a class='pop'><u> 1 </u></a> &nbsp; of the cards you want";
 				var trade = collection.filter(c => c.inWishlist)[0];
 			}
 				var img = document.createElement("img");
@@ -74,37 +83,46 @@ function createPage() {
 		match.append(infoDiv);
 		matches.append(match);
 	}
-	runSemanticJquery(searchType);
+} else if (!matchesSet) {
+	numMatchesDiv.innerHTML = "The pokemon you have searched (" + searchValue + ") does not have a card in the " + set + " set in our database :(";
+	matches.append(numMatchesDiv);
+}
+else if (showCards.length<0) {
+	numMatchesDiv.innerHTML = "The pokemon you have searched (" + searchValue + ") is not in our database :(";
+	matches.append(numMatchesDiv);
+} else {
+	if (searchType=="trade") {
+		numMatchesDiv.innerHTML = "You do not have any pokemon on your wishlist. Add a card to your wishlist so you can be matched with other trainers!";
+		matches.append(numMatchesDiv);
+	} else {
+		numMatchesDiv.innerHTML = "You do not have any pokemon up for trade. Put cards up for trade so you can be matched with other trainers!";
+		matches.append(numMatchesDiv);
+	}
+}
+	runSemanticJquery(searchType,set);
 }
 
-function runSemanticJquery(searchType) {
+function runSemanticJquery(searchType,set) {
    $('.pop')
       .popup({
         inline: true,
         position: "bottom center"
       });
-$('.ui.dropdown')
-  .dropdown({
-    values: [
-      {
-        name: 'Users Who Want',
-        value: 'trade',
-        selected: (searchType=="trade")
-      },
-      {
-        name     : 'Users Who Have',
-        value    : 'wishlist',
-        selected : (searchType!="trade")
-      }
-    ]
-  });
+   $('#set-select').dropdown('set selected', set);
+   searchType = (searchType ? searchType : "wishlist");
+   $('#dropdownText').dropdown('set selected', searchType);
 }
 
 function searchFunc() {
 	var searchTerm = document.getElementById("search").value;
-	var searchType = $('.dropdown').dropdown('get value')[0];
-	var url = "tradeResults.html?search="+searchTerm+"&type="+searchType;
+	var searchType = $('.dropdownText').dropdown('get value');
+	var set = $('#set-select').dropdown('get value');
+	var url = "tradeResults.html?search="+searchTerm+"&type="+searchType+"&set="+set;
 	window.location.href = url;
+}
+
+var matchQuery = (query, name) => {
+	return name.toLowerCase() == (query.toLowerCase());
 }
 
 document.addEventListener("DOMContentLoaded",createPage);
