@@ -1,7 +1,9 @@
 #grid{
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr 4fr;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 8fr;
 }
 
 #mapSearch{
@@ -9,6 +11,9 @@
 	grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 2;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 2fr 1.5fr;
 }
 
 #mapResults{
@@ -16,6 +21,11 @@
 	grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 3;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  overflow-y: auto;
+  margin-right: 1em;
 }
 
 #map{
@@ -23,4 +33,49 @@
   grid-column-end: 3;
   grid-row-start: 2;
   grid-row-end: 3;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+#dropdown{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#distance-within{
+  padding-right: 1em;
+}
+
+.ui.icon.input{
+  padding-top: 5px;
+  width:95%;
+}
+
+.leagueItem{
+  display: flex;
+  flex-direction: row;
+}
+
+.point{
+  color: #e17055;
+}
+
+.leagueName{
+  color: black;
+  font-weight: bold;
+}
+
+.ui.header.community{
+  padding: 15px;
+  padding-top: 30px;
+}
+
+.ui.compact.menu{
+  width:60%;
+  height:80%;
+}
+
+.ui.teal.button.community{
+  margin-left: 10px;
 }
