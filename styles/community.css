@@ -223,6 +223,16 @@
   #mapResults {
     margin-right: 1em;
   }
+    #league-info {
+    display: grid;
+    justify-content: none;
+    flex-direction: none;
+    margin-top: none;
+    align-items: center;
+  }
+  .teal.ui.cards {
+    width: 90%;
+  }
 }
 
 @media (max-width: 700px) {
@@ -237,5 +247,15 @@
   }
   #mapResults {
     margin-right: 0px;
+  }
+  #league-info {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    margin-top: 20px;
+    align-items: stretch;
+  }
+  .teal.ui.cards {
+    width: 100%;
   }
 }
