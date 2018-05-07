@@ -32,6 +32,8 @@
 <script src="scripts/behavior.js"></script>
 <script src="scripts/store.js"></script>
 <script src="scripts/community.js"></script>
+<link rel="stylesheet" href="styles/community.css">
+
 
 <script>function initMap() {
   var mit = {lat: 42.359184, lng: -71.093544};
@@ -41,7 +43,7 @@
     google.maps.event.addListener(map, "idle", function(){
         google.maps.event.trigger(map, 'resize');
     });
-  }); 
+  });
   var pandemonium = {lat: 42.366218, lng: -71.105599};
   var marker2 = new google.maps.Marker({position: pandemonium, map: map});
   var newEnglandComics = {lat: 42.343377, lng: -71.123253};
@@ -97,12 +99,22 @@
 
    <main>
      <div id="grid">
+       <div class="ui header community">Community</div>
        <div id="mapSearch">
          <div class="ui search">
            <div class="ui icon input">
              <input class="prompt" type="text" id="search" placeholder="Search by City, State or zip code...">
            </div>
          </div>
+         <div id="dropdown">
+         <div id="distance-within">Distance within:   </div>
+         <select class="ui dropdown" id="distance-select">
+             <option value="5">5 miles</option>
+             <option value="10">10 miles</option>
+             <option value="25">25 miles</option>
+         </select>
+         <div class="ui teal button community" onClick=searchFunc()>Search</div>
+       </div>
        </div>
        <div id="map" style="width: 400px; height: 300px;"></div>
        <div id="mapResults"></div>
