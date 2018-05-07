@@ -2,6 +2,11 @@ var leagueLocation;
 var searchDistance;
 var createPage = () => {
   createResults("boston",25);
+  var searchLocation = getURLParam("searchLocation") ? getURLParam("searchLocation") : "boston,ma";
+  var searchBar = document.getElementById("search");
+  searchBar.value = searchLocation;
+  var searchDistance = getURLParam("distance") ? getURLParam("distance") : "5";
+  $('#distance-select').dropdown('set selected', searchDistance);
 }
 document.addEventListener("DOMContentLoaded", createPage);
 
@@ -33,6 +38,8 @@ function createResults(location, distance) {
       var leagueName = document.createElement("a");
       leagueName.className = "leagueName";
       leagueName.innerHTML = league.name;
+      var url = "league.html?league=" + league.name + "&searchLocation=" + location + "&distance=" + distance;
+      leagueName.href = url;
 
       var leagueAddress = document.createElement("div");
       leagueAddress.className = "leagueAddress";
