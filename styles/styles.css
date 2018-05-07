@@ -59,9 +59,9 @@ body {
 	margin-top: 50px;
 	height: 400px;
 	font: 16px;
-	display: flex !important;
+/*	display: flex !important;
 	flex-direction: column;
-	justify-content: center !important;
+	justify-content: center !important;*/
 }
 
 .indexButton {
