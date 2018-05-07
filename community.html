@@ -30,7 +30,28 @@
   crossorigin="anonymous"></script>
 <script src="semantic/dist/semantic.min.js"></script>
 <script src="scripts/behavior.js"></script>
-<script src="scripts/profile.js"></script>
+<script src="scripts/store.js"></script>
+<script src="scripts/community.js"></script>
+
+<script>function initMap() {
+  var mit = {lat: 42.359184, lng: -71.093544};
+  var center = {lat: 42.359184, lng: -71.093544};
+  var map = new google.maps.Map(document.getElementById('map'), { zoom: 12, center: center }); var marker = new google.maps.Marker({ position: mit, map: map });
+  $(document).ready(function() {
+    google.maps.event.addListener(map, "idle", function(){
+        google.maps.event.trigger(map, 'resize');
+    });
+  }); 
+  var pandemonium = {lat: 42.366218, lng: -71.105599};
+  var marker2 = new google.maps.Marker({position: pandemonium, map: map});
+  var newEnglandComics = {lat: 42.343377, lng: -71.123253};
+  var marker3 = new google.maps.Marker({position: newEnglandComics, map: map});
+ }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDieZ7uAY4DPdT3Z4fp4KtykHl6dWryYdw&callback=initMap">
+</script>
+
+
 
 </head>
 <body>
@@ -75,8 +96,17 @@
   <div class="pusher main-content">
 
    <main>
-
-
+     <div id="grid">
+       <div id="mapSearch">
+         <div class="ui search">
+           <div class="ui icon input">
+             <input class="prompt" type="text" id="search" placeholder="Search by City, State or zip code...">
+           </div>
+         </div>
+       </div>
+       <div id="map" style="width: 400px; height: 300px;"></div>
+       <div id="mapResults"></div>
+     </div>
    </main>
    </div>
 </div>

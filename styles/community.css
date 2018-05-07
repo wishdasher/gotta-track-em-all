@@ -1,0 +1,26 @@
+#grid{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 4fr;
+}
+
+#mapSearch{
+  grid-column-start: 2;
+	grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+#mapResults{
+  grid-column-start: 1;
+	grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+#map{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}

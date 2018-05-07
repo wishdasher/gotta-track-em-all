@@ -72,3 +72,22 @@ var cards = {
 	]
 
 };
+
+var leagues  = {
+	"boston": [
+		{"name": "New England Comics Brookline Pokemon League", "street": "316 Harvard Street", "cityState": "Brookline, MA", "zipCode":"02446", "phone": "(617) 566-0115", "distance": 2},
+		{"name": "MIT Pokémon League", "street": "77 Massachusetts Avenue", "cityState": "Cambridge, MA", "zipCode": "02139", "phone": "(404) 786-3698", "distance": 2},
+		{"name": "Pandemonium Pokemon League", "street": "4 Pleasant Street", "cityState": "Cambridge, MA", "zipCode": "02139", "phone": "(617) 547-3721","distance": 2}
+
+	],
+	"sanFrancisco": [
+		{"name": "MewTwosday Pokemon League", "street": "333 Divisadero Street", "cityState": "San Francisco, CA", "zipCode":"94117", "phone": "(650) 922-1545", "distance": 1},
+		{"name": "D20 Games Pokemon League", "street": "1530 Park Street", "cityState": "Alameda, CA", "zipCode":"94501", "phone": "(510) 522-2109", "distance": 9},
+		{"name": "Games of Berkeley", "street": "2510 Durant Avenue", "cityState": "Berkeley, CA", "zipCode":"94704", "phone": "(510) 540-7822", "distance": 11},
+		{"name": "Eudemonia", "street": "2154 University Avenue", "cityState": "Berkeley, CA", "zipCode":"94704", "phone": "(510) 883-0814", "distance": 11},
+		{"name": "Famous Johnny's Pokemon League", "street": "1859 El Camino Real", "cityState": "Burlingame, CA", "zipCode":"94010", "phone": "(702) 885-8467", "distance": 13},
+		{"name": "The Strike Zone Pokemon League", "street": "1205 Grant Avenue", "cityState": "Novato, CA", "zipCode":"94945", "phone": "(415) 898-7995", "distance": 24},
+		{"name": "Diamond Mine Pokemon League", "street": "1950 Market Street, Suite E", "cityState": "Concord, CA", "zipCode":"94520", "phone": "(925) 581-0600", "distance": 24}
+	]
+
+};
