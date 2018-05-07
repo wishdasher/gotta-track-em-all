@@ -12,6 +12,11 @@ function createPage() {
 	createSubmenu("wishlist",wishlist,collection);
 	createSubmenu("trade",tradelist,collection);
 	runSemanticJquery(searchType);
+
+	checkWindowTrade();
+	window.addEventListener("resize", (evt) => {
+		checkWindowTrade();
+	});
 	//for pokemon in UFT, create div with attributes and make it a link to the results page
 }
 
@@ -151,6 +156,31 @@ function searchFunc() {
 	var set = $('#set-select').dropdown('get value');
 	var url = "tradeResults.html?search="+searchTerm+"&type="+searchType+"&set="+set;
 	window.location.href = url; }
+}
+
+
+
+function checkWindowTrade() {
+		if (document.body.clientWidth < 700) {
+			var labels = document.getElementsByClassName("outerDiv");
+			for (var i=0;i<labels.length;i++) {
+			labels[i].style.display = "none";
+			labels[i].className = labels[i].className.replace("five","seven");
+			labels[i].className = labels[i].className.replace("six","seven");
+		}
+		}
+	else if (document.body.clientWidth < 840) {
+			var labels = document.getElementsByClassName("outerDiv");
+			for (var i=0;i<labels.length;i++) {
+			labels[i].style.display = "none";
+		}
+		
+	} else if (document.body.clientWidth > 840) {
+			var labels = document.getElementsByClassName("outerDiv");
+			for (var i=0;i<labels.length;i++) {
+			labels[i].style.display = "none";
+		}
+	}
 }
 
 // function createTooltip(div,name) {

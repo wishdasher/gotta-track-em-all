@@ -33,13 +33,13 @@ function checkWindow() {
 		document.getElementsByClassName("sidebar")[0].className = "ui visible left vertical thin sidebar menu";
 		var labels = document.getElementsByClassName("sideLabel");
 			for (var i=0;i<labels.length;i++) {
-			labels[i].style.display = "inline";
+			labels[i].style.display = "block";
 		}
 	} else if (document.body.clientWidth > 840) {
 		document.getElementsByClassName("sidebar")[0].className = "ui visible left vertical sidebar menu";
 				var labels = document.getElementsByClassName("sideLabel");
 			for (var i=0;i<labels.length;i++) {
-			labels[i].style.display = "inline";
+			labels[i].style.display = "block";
 		}
 	}
 }
