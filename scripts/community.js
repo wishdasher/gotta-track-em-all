@@ -6,6 +6,11 @@ var createPage = () => {
   var searchDistance = getURLParam("distance") ? getURLParam("distance") : "5";
   var leagueSelected = getURLParam("league") ? getURLParam("league") : "MIT Pokémon League";
   if(searchBar){
+      document.getElementById("search").addEventListener("keypress", (evt) => {
+    if (evt.keyCode === 13) { // enter key
+      searchFunc();
+      }
+      });
     createResults("boston",25);
     if(searchLocation=="boston"){
       searchLocation = "Boston, MA";
@@ -82,16 +87,15 @@ function searchFunc() {
   searchTerm = document.getElementById("search").value;
   searchTerm = searchTerm.toLowerCase();
   searchTerm = searchTerm.replace(/ /g,"");
-  console.log(searchTerm);
   if (searchTerm!="" && searchTerm!=null) {
     var searchDistance = $('#distance-select').dropdown('get value');
-     if (searchTerm == "boston,ma" || searchTerm == "boston,massachusetts"){
+     if (searchTerm == "boston,ma" || searchTerm == "boston,massachusetts" || searchTerm == "boston"){
        leagueLocation = "boston";
      }
      else if(Number(searchTerm) && 02108 <= Number(searchTerm) &&  Number(searchTerm) <= 02118){
        leagueLocation = "boston";
      }
-     else if(searchTerm == "sanfrancisco,ca" || searchTerm == "sanfrancisco,california"){
+     else if(searchTerm == "sanfrancisco,ca" || searchTerm == "sanfrancisco,california" || searchTerm == "sanfrancisco"){
        leagueLocation = "sanFrancisco";
        moveToLocation(37.772703, -122.43739, searchDistance);
      }
@@ -105,7 +109,6 @@ function searchFunc() {
 }
 
 function moveToLocation(lat, lng, distance){
-  console.log(distance);
   map = new google.maps.Map(document.getElementById('map'), { zoom: 9, center: mewtwosday });
   var mewtwosday = {lat: 37.772703, lng: -122.43739};
   var marker = new google.maps.Marker({ position: mewtwosday, map: map });
@@ -114,7 +117,6 @@ function moveToLocation(lat, lng, distance){
     var marker2 = new google.maps.Marker({ position: d20, map: map });
   }
   if (distance > 10 && distance <=25){
-    console.log("hiiii");
     var gamesOfBerk = {lat: 37.867881, lng: -122.258463};
     var marker3 = new google.maps.Marker({ position: gamesOfBerk, map: map });
     var johnny = {lat: 37.595973, lng: -122.3851}

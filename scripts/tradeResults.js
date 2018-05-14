@@ -14,6 +14,12 @@ function createPage() {
 
 	var set = getURLParam("set");
 
+	document.getElementById("search").addEventListener("keypress", (evt) => {
+		if (evt.keyCode === 13) { // enter key
+			searchFunc();
+		}
+	});
+
 	let showCards = collection.filter(
 		c => matchQuery(searchValue, c.name));
 	console.log(set);

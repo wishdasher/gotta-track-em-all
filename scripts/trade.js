@@ -13,6 +13,12 @@ function createPage() {
 	createSubmenu("trade",tradelist,collection);
 	runSemanticJquery(searchType);
 
+	Util.one("#search").addEventListener("keypress", (evt) => {
+		if (evt.keyCode === 13) { // enter key
+			searchFunc();
+		}
+	});
+
 	checkWindowTrade();
 	window.addEventListener("resize", (evt) => {
 		checkWindowTrade();
